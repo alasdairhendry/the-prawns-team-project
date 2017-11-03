@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--Import Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!--Import Custom Styles-->
+    <link type="text/css" rel="stylesheet" href="Styles/UserValidation.css">
+
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Import Javascript-->
+    <script src="Javascript/UserValidation.js"></script>
+
+    <!--FireBase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCbYpShuRDz_K5AXBI5C7a1QrObC9qUN8I",
+            authDomain: "fir-htmltest.firebaseapp.com",
+            databaseURL: "https://fir-htmltest.firebaseio.com",
+            projectId: "fir-htmltest",
+            storageBucket: "fir-htmltest.appspot.com",
+            messagingSenderId: "692577663068"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <title>My Account</title>
+</head>
+<body style="margin: 8px;">
+
+    <!--Define Header-->
+    <div class="Header">
+        <h1 class="mHeaderText" style="color: #ffffff;">Contacts Book</h1>
+    </div>
+
+    <!--Define Main Content-->
+    <div class="container">
+        <div class="row">
+
+            <!--Login Column-->
+            <div class="col-sm-12">
+                <div class="content" id="loginDiv">
+                    <h1>Log In</h1>
+                    <!--<input type="button" value="Register" class="tab">-->
+                    <input class="text" type="text" placeholder="Username..." id="logUsername">
+                    <input class="text" type="password" placeholder="Password..." id="logPassword">
+                    <span style="transition-duration: .5s" id="logNotification"></span>
+                    <input class="button" style="margin-bottom: 0%" type="button" value="Log In" id="logSubmit">
+                    <input class="button" type="button" value="Don't Have An Account?" id="logRegister">
+                    <!--<p>Forgot Username?</p>-->
+                    <!--<p>Forgot Password?</p>-->
+                </div>
+            </div>
+
+            <!--Register Column-->
+            <div class="col-sm-12">
+                <div class="content" id="regDiv" style="display: none;">
+                    <h2>Register</h2>
+                    <input class="text" type="text" placeholder="Username..." id="regUsername">
+                    <input class="text" type="email" placeholder="Email..." id="regEmail">
+                    <input class="text" type="password" placeholder="Password..." id="regPassword">
+                    <input class="text" type="password" placeholder="Confirm Password..." id="regConPassword">
+                    <span style="transition-duration: .5s" id="regNotification"></span>
+                    <input class="button" type="button" value="Register" id="regSubmit">
+                    <input class="button" type="button" value="Cancel" id="regCancel">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
