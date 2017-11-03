@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/ValidationPage(part 1).css">
+    <link rel="icon" href="avatar3.png" >
+    <title>Contacts Book</title>
+</head>
+<body>
+
+
+
+<form action="login.js"> <!-- A js file that will take care the login authentication -->
+    <div class="imgcontainer">
+        <img src="avatar3.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbutton">Cancel</button>
+        <span class="password">Forgot your <a href="#" style="color: #4790e9">password?</a></span>
+    </div>
+</form>
+
+</body>
+</html>
