@@ -1,0 +1,189 @@
+mainFont{
+    font-family: 'Roboto', sans-serif;
+}
+
+div.Header {
+    background-color: #4790e9;
+    border-radius: 15px;
+    height: 20%;
+    width: 100%;
+    align-content: center;
+    padding: 10px 25px;
+    margin:0 0 15px 0;
+}
+
+div.SideBar{
+    background-color: #ffffff;
+    position: absolute;
+    height: 80%;
+    width: 15%;
+    border-right:2px solid;
+    border-color: #c8c8c8;
+}
+
+div.Main{
+    margin: 0px 0px 0px 17%;
+}
+
+div.floatingDiv{
+
+}
+
+div.contact{
+    overflow:hidden;
+    margin:15px;
+    padding:5px;
+    border-radius: 15px;
+}
+
+div.contact:hover{
+    background-color: lightgray;
+    transition-duration: .5s;
+}
+
+input.floatingButton{
+    border-radius: 100%; border-width: 0; width: 64px; height: 64px;
+    background-color: #f08774;
+    font-size: 24px;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 0 32px 18px 0;
+}
+
+input.floatingButton:hover{
+    background-color: #dc736e;
+    /*width: 68px;*/
+    /*height: 68px;*/
+    transition-duration: 0.5s;
+}
+
+input.SideBarButton{
+    background-color: #ffffff;
+    width: 95%;
+    align-self: center;
+    height: 48px;
+    margin: 5px 0px 5px 5px;
+    text-align: left;
+    font-size: 24px;
+    border-radius: 10px;
+    border-width: 0px;
+    transition-duration: 0.5s;
+    color: #4790e9;
+}
+
+input.SideBarButton:hover{ background-color: #f0f0f0 ; font-size: 26px;}
+
+hr {    border:1px solid;     border-color: #c8c8c8;}
+
+.HeaderText{
+    font-family: 'Roboto', sans-serif;
+/*    font-size: 38px;*/
+    display: inline-block;
+    height:40px;
+    color: white;
+}
+
+input.SearchBar{
+    display: inline-block;
+    background-color: #76aef1;
+    margin: 15px 0 0 0%;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 0px 15px 0px 15px;
+    color: #c8c8c8;
+    font-style: oblique;
+    transition-duration: .5s;
+}
+input.SearchBar:hover { background-color: #ffffff; }
+input.SearchBar:focus { background-color: #ffffff;}
+
+input.InputBox{
+    display: block;
+    background-color: #f5f5f5;
+    margin: 1%;
+    width: 95%;
+    height: 40px;
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 0px 15px 0px 15px;
+    color: #c8c8c8;
+    font-style: oblique;
+    transition-duration: .5s;
+}
+
+input.InputBox:hover { background-color: #e6e6e6; }
+input.InputBox:focus { background-color: #e6e6e6;}
+
+a.MenuButton{
+    display: inline-block;
+    background-color: #e1e1e1;
+    margin: 15px 0 0 0%;
+    padding: 10px 15px 10px 15px;
+    height:40px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: dotted;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: inherit; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% 1% 15% 15%; /* 15% from the top and centered */
+    width: 35%; /* Could be more or less, depending on screen size */
+    height: 45%;
+    border-radius: 15px;
+    border-width: 1px;
+    border: #b7b7b7 solid;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #4790e9;
+    color: white;
+    border-radius: 15px;
+
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #4790e9;
+    color: white;
+    border-radius: 15px;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
