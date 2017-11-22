@@ -1,1 +1,0 @@
-// Javascript functions directly used with the account.html page
