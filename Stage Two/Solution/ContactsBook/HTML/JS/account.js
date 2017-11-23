@@ -52,20 +52,7 @@ var OnLoginSuccess = function () {
 var FillOutHTML= function () {
     document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
 
-    // console.log(loggedInAccount.contacts.length);
-
     var contactsHTML = "";
-    // for(var contact in loggedInAccount.contacts) {
-
-    //
-    //
-    //     for (var tag in contact.tags) {
-    //         contactsHTML += tag.name.toString() + " ";
-    //     }
-    //
-    //
-
-    // }
 
     for(var i = 0; i < loggedInAccount.contacts.length; i++)
     {
@@ -86,11 +73,23 @@ var FillOutHTML= function () {
 
         contactsHTML += "<div class='col-md-1'><input type='button' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value='C'></div>\n";
         contactsHTML += "<div class='col-md-1'><input type='button' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value='S'></div>\n";
-        contactsHTML += "<div class='col-md-1'><input type='button' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value='E'></div>\n" ;
+        contactsHTML += "<div class='col-md-1 contactEmailBTN'><input type='button' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value='E'></div>\n" ;
         contactsHTML += "</div>";
     }
 
     document.getElementById("contacts").innerHTML = contactsHTML.toString();
+
+
+    var emailBTNS = document.getElementsByClassName("contactEmailBTN");
+
+    for(var i = 0; i < emailBTNS.length; i++)
+    {
+        emailBTNS[i].onclick = function (num) {
+            return function () {
+                OnClick_EmailContact(num);
+            }
+        }(i);
+    }
 
     var contacts = document.getElementsByClassName("contact");
 
@@ -226,9 +225,37 @@ var OnClick_DeleteEditContact = function (index) {
         button.value = "Delete";
         loggedInAccount.contacts.splice(index, 1);
 
-        document.getElementById('editContactModal').style.display='none'
+        HideAllModals();
 
         UpdateAccountOnDatabase(loggedInAccount);
         FillOutHTML();
     }
+}
+
+var OnClick_EmailContact = function (index) {
+    var modal = document.getElementById("emailContactModal");
+    modal.style.display = "block";
+
+    var headerText = document.getElementById("emailContactHeaderText");
+    headerText.innerHTML = "Email " + loggedInAccount.contacts[index].forename;
+
+    var sendBTN = document.getElementById("emailContact_SendBTN");
+    sendBTN.onclick = function() {OnClick_SendEmail(index)};
+
+    var cancelBTN = document.getElementById("emailContact_CancelBTN");
+    cancelBTN.onclick = function() {OnClick_CancelEmail(index);}
+}
+
+var OnClick_SendEmail = function () {
+    
+}
+
+var OnClick_CancelEmail = function () {
+    HideAllModals();
+}
+
+var HideAllModals = function () {
+    document.getElementById('editContactModal').style.display='none'
+    document.getElementById('addContactModal').style.display='none'
+    document.getElementById('emailContactModal').style.display='none'
 }

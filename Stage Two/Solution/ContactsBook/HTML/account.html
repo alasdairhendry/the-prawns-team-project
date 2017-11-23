@@ -140,7 +140,7 @@
     <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
 
         <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
-        <span onclick="document.getElementById('editContactModal').style.display='none'"
+        <span onclick="HideAllModals();"
               class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
             <h2 class="HeaderText">Edit Contact</h2>
         </header>
@@ -170,6 +170,35 @@
             <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Update" id="updateEditContactBTN">  </div>
 
             <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Delete" id="deleteEditContactBTN">  </div>
+        </footer>
+
+    </div>
+</div>
+
+<!--EMAIL CONTACT MODAL-->
+
+<div id="emailContactModal" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
+
+        <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
+        <span onclick="HideAllModals();"
+              class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
+            <h2 class="HeaderText" id="emailContactHeaderText"}>Email Contact</h2>
+        </header>
+
+        <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
+
+            <input class="InputBox" type="text" placeholder="To..." id="emailContact_Email">
+            <input class="InputBox" type="text" placeholder="Subject..." id="emailContact_Subject">
+            <input class="InputBox" style="height:400px; vertical-align: top;" type="text" placeholder="Body..." id="emailContact_Body">
+
+        </div>
+
+        <footer class="w3-container w3">
+            <hr>
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Send" id="emailContact_SendBTN">  </div>
+
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Cancel" id="emailContact_CancelBTN">  </div>
         </footer>
 
     </div>

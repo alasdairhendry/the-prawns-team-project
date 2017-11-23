@@ -43,6 +43,8 @@ div.contact:hover{
     transition-duration: .5s;
 }
 
+div.contactEmailBTN{}
+
 input.floatingButton{
     border-radius: 100%; border-width: 0; width: 64px; height: 64px;
     background-color: #f08774;
