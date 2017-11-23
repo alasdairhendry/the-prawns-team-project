@@ -29,7 +29,7 @@ var CheckURL = function () {
     if(!url.includes("name="))
     {
         console.log("Does not include name tag");
-        document.location.href = "http://localhost:63342/ContactsBook/HTML/index.html";
+        document.location.href = "../index.html";
     }
 
         var params = url.split('?')[1].split('&'),

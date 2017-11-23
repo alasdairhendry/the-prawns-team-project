@@ -175,7 +175,7 @@ var FindAccountByUsername = function(username)
 }
 
 var LoadAccountPage = function (username) {
-    document.location.href="ContactsBook/HTML/account.html?name=" + username.toString();
+    document.location.href="Homepage/account.html?name=" + username.toString();
 }
 
 var Login = function (username) {
