@@ -1,0 +1,87 @@
+<!--This will be the page used to display the users home page once they have logged in-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css">
+    <script src="JS/account.js"></script>
+
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Contacts Book</title>
+</head>
+<body style="padding: 15px">
+<div class="Header">
+    <!--        <div class="container">-->
+    <div class="row">
+
+        <div class="col-md-6 vcenter"><h1 class="HeaderText" style="color: #ffffff;">Contacts Book</h1></div>
+        <div class="col-md-5 vcenter "><input class="SearchBar" type="text" value="Search..."></div>
+        <div class="col-md-1"><a class="MenuButton" href="">Menu</a></div>
+
+    </div>
+    <!--        </div>-->
+</div>
+
+<div class="SideBar">
+    <input type="button" class="SideBarButton" value="Contacts">
+    <input type="button" class="SideBarButton" value="Favourites">
+    <input type="button" class="SideBarButton" value="Tags">
+    <hr>
+    <input type="button" class="SideBarButton" value="Find Duplicates">
+    <input type="button" class="SideBarButton" value="Settings">
+    <hr>
+    <input type="button" class="SideBarButton" value="Log Out">
+
+    <br>
+    <br>
+
+    <input type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block;">
+    <p style="display: inline-block; vertical-align:top; margin: 5px;">Alasdair Hendry</p>
+</div>
+
+<div class="Main">
+    <h1>PAGE HEADER HERE</h1>
+    <div id="contacts">
+
+        <!--PLACE CONTENT FOR THE MAIN CONTAINER IN HERE-->
+
+    </div>
+</div>
+
+<div class="floatingDiv">
+    <input class="floatingButton" type="button" value="+" id="btnAddContact">
+</div>
+
+<div id="myModal" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
+
+        <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
+        <span onclick="document.getElementById('myModal').style.display='none'"
+              class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
+            <h2 class="HeaderText">Add Contact</h2>
+        </header>
+
+        <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
+
+            <!--PLACE CONTENT IN THE MODAL HERE-->
+
+        </div>
+
+        <footer class="w3-container w3">
+            <hr>
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Add">  </div>
+
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Cancel" onclick="document.getElementById('myModal').style.display='none'">  </div>
+        </footer>
+
+    </div>
+</div>
+
+
+</body>
+</html>

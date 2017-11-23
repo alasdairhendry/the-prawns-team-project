@@ -1,0 +1,208 @@
+<!--This will be the page used to display the users home page once they have logged in-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css">
+
+    <!--JQuery Import-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/account.js"></script>
+
+    <!--FireBase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCbYpShuRDz_K5AXBI5C7a1QrObC9qUN8I",
+            authDomain: "fir-htmltest.firebaseapp.com",
+            databaseURL: "https://fir-htmltest.firebaseio.com",
+            projectId: "fir-htmltest",
+            storageBucket: "fir-htmltest.appspot.com",
+            messagingSenderId: "692577663068"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Contacts Book</title>
+</head>
+<body style="padding: 15px">
+
+<!--HEADER CONTENT-->
+
+<div class="Header">
+    <!--        <div class="container">-->
+    <div class="row">
+
+        <div class="col-md-6 vcenter"><h1 class="HeaderText" style="color: #ffffff;">Contacts Book</h1></div>
+        <div class="col-md-5 vcenter "><input class="SearchBar" type="text" value="Search..."></div>
+        <div class="col-md-1"><a class="MenuButton" href="">Menu</a></div>
+
+    </div>
+    <!--        </div>-->
+</div>
+
+<!--SIDE NAVIGATION BAR-->
+
+<div class="SideBar">
+    <input type="button" class="SideBarButton" value="Contacts">
+    <input type="button" class="SideBarButton" value="Favourites">
+    <input type="button" class="SideBarButton" value="Tags">
+    <hr>
+    <input type="button" class="SideBarButton" value="Find Duplicates">
+    <input type="button" class="SideBarButton" value="Settings">
+    <hr>
+    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = 'http://localhost:63342/ContactsBook/HTML/index.html';">
+
+    <br>
+    <br>
+
+    <input type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block;">
+    <p style="display: inline-block; vertical-align:top; margin: 5px;" id="usernameLogout"}></p>
+</div>
+
+<!--MAIN BODY CONTENT-->
+
+<div class="Main">
+    <h1> Contacts</h1>
+    <div id="contacts" style="max-height: 700px; overflow-y: auto;">
+        <div id="contact" class="contact">
+            <div class="col-md-1"><input type="checkbox"></div>
+            <div class="col-md-3"><p>Bob Ross</p></div>
+            <div class="col-md-2"><p>07852925503</p></div>
+            <div class="col-md-3"><p>boss.rob@gmail.com</p></div>
+            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="C"></div>
+            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="S"></div>
+            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="E"></div>
+        </div>
+        <span style="color: #60FD36;"></span>
+    </div>
+</div>
+
+<!--BOTTOM-RIGHT DOCKED BUTTON-->
+
+<div class="floatingDiv">
+    <input class="floatingButton" type="button" value="+" id="btnAddContact">
+</div>
+
+<!--ADD CONTACT MODAL-->
+
+<div id="addContactModal" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
+
+        <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
+        <span onclick="document.getElementById('addContactModal').style.display='none'"
+              class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
+            <h2 class="HeaderText">Add Contact</h2>
+        </header>
+
+        <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
+
+            <p style="display: inline-block;">Personal Details</p>      <input style="display: inline-block;" type="checkbox"><br/>
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="First Name..." id="acForename">
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Last Name..." id="acSurname">
+
+            <p style="display: inline-block;">Address Details</p>       <input style="display: inline-block;" type="button" value="GeoLocation"><br/>
+
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 1..." id="acAddOne">
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 2..." id="acAddTwo">
+            <input class="InputBox" type="text" placeholder="Postcode..." id="acPostcode">
+            <input class="InputBox" type="text" placeholder="City..." id="acCity">
+            <input class="InputBox" type="text" placeholder="Country..." id="acCountry">
+
+            <p>Contact Details</p>
+            <input class="InputBox" type="number" placeholder="Mobile Number..." id="acMobile">
+            <input class="InputBox" type="number" placeholder="Home Number..." id="acHomePhone">
+            <input class="InputBox" type="email" placeholder="Email Address..." id="acEmail">
+        </div>
+
+        <footer class="w3-container w3">
+            <hr>
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Add" id="addContactBTN">  </div>
+
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Cancel" id="cancelAddContactBTN">  </div>
+        </footer>
+
+    </div>
+</div>
+
+<!--EDIT CONTACT MODAL-->
+
+<div id="editContactModal" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
+
+        <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
+        <span onclick="HideAllModals();"
+              class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
+            <h2 class="HeaderText">Edit Contact</h2>
+        </header>
+
+        <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
+
+            <p style="display: inline-block;">Personal Details</p>      <input style="display: inline-block;" type="checkbox"><br/>
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="First Name..." id="ecForename">
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Last Name..." id="ecSurname">
+
+            <p style="display: inline-block;">Address Details</p>       <input style="display: inline-block;" type="button" value="GeoLocation"><br/>
+
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 1..." id="ecAddOne">
+            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 2..." id="ecAddTwo">
+            <input class="InputBox" type="text" placeholder="Postcode..." id="ecPostcode">
+            <input class="InputBox" type="text" placeholder="City..." id="ecCity">
+            <input class="InputBox" type="text" placeholder="Country..." id="ecCountry">
+
+            <p>Contact Details</p>
+            <input class="InputBox" type="number" placeholder="Mobile Number..." id="ecMobile">
+            <input class="InputBox" type="number" placeholder="Home Number..." id="ecHomePhone">
+            <input class="InputBox" type="email" placeholder="Email Address..." id="ecEmail">
+        </div>
+
+        <footer class="w3-container w3">
+            <hr>
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Update" id="updateEditContactBTN">  </div>
+
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Delete" id="deleteEditContactBTN">  </div>
+        </footer>
+
+    </div>
+</div>
+
+<!--EMAIL CONTACT MODAL-->
+
+<div id="emailContactModal" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 40%; border-radius: 15px">
+
+        <header class="w3-container w3" style="background-color: #4790e9; border-radius: 15px">
+        <span onclick="HideAllModals();"
+              class="w3-button w3-display-topright" style="border-radius: 15px">&times;</span>
+            <h2 class="HeaderText" id="emailContactHeaderText"}>Email Contact</h2>
+        </header>
+
+        <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
+
+            <input class="InputBox" type="text" placeholder="To..." id="emailContact_Email">
+            <input class="InputBox" type="text" placeholder="Subject..." id="emailContact_Subject">
+            <input class="InputBox" style="height:400px; vertical-align: top;" type="text" placeholder="Body..." id="emailContact_Body">
+
+        </div>
+
+        <footer class="w3-container w3">
+            <hr>
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color: #4790e9; color: white;" value="Send" id="emailContact_SendBTN">  </div>
+
+            <div class="col-md-6"><input type="button" class="SideBarButton" style="text-align: center; background-color : indianred; color: white;" value="Cancel" id="emailContact_CancelBTN">  </div>
+        </footer>
+
+    </div>
+</div>
+
+</body>
+</html>
