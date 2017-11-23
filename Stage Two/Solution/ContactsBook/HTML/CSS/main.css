@@ -105,7 +105,7 @@ input.SearchBar:focus { background-color: #ffffff;}
 
 input.InputBox{
     display: block;
-    background-color: #f5f5f5;
+    background-color: #ededed;
     margin: 1%;
     width: 95%;
     height: 40px;
@@ -141,7 +141,7 @@ a.MenuButton{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: inherit; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgb(0,0,0); /* Fallback colour */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 
 }

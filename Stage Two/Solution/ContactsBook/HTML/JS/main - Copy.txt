@@ -1,0 +1,84 @@
+var Account = function (username, email, password) {
+    if(!username)
+        this.username = "NewUser";
+    else this.username = username;
+
+    if(!email)
+        this.email = "NewEmail";
+    else this.email = email;
+
+    if(!password)
+        this.password = "NewPassword";
+    else this.password = password;
+
+    this.contacts = [];
+
+    this.AddNewContact = function (forename, surname, addOne, addTwo, city, mobilePhone, homePhone, email) {
+        if(!forename || !surname || !addOne || !addTwo || !city || !mobilePhone || !homePhone || !email)
+            return;
+
+        var newContact = new Contact(forename, surname, addOne, addTwo, city, mobilePhone, homePhone, email);
+        this.contacts.push(newContact);
+    }
+}
+
+var Contact = function (forename, surname, addOne, addTwo, city, mobilePhone, homePhone, email) {
+    this.forename = forename;
+    this.surname = surname;
+    this.addOne = addOne;
+    this.addTwo = addTwo;
+    this.city = city;
+    this.mobilePhone = mobilePhone;
+    this.homePhone = homePhone;
+    this.email = email;
+}
+
+var AddAccountToDatabase = function (_accountToAdd) {
+    if(!_accountToAdd)
+        return;
+
+    // Pull database
+    firebase.database().ref("accounts/").once("value").then(function (snapshot)
+    {
+        var foundMatchingUser = false;
+        var foundMatchingEmail = false;
+        var matchingUser = "";
+
+        // Loop through each child Account of the database
+        snapshot.forEach(function (child) {
+
+            // Store the child's data
+            var newItemValue = child.val();
+
+            // Check the username does not exist
+            if(newItemValue.username.toString().toLowerCase() === _accountToAdd.username.toString().toLowerCase()) {
+                foundMatchingUser = true;
+                matchingUser = newItemValue;
+            }
+
+            // Check the email does not exist
+            if(newItemValue.email.toString().toLowerCase() === _accountToAdd.email.toString().toLowerCase())
+            {
+                foundMatchingEmail = true;
+                matchingUser = newItemValue;
+            }
+        });
+
+        if(foundMatchingUser)           // The username matched one that is already in the database
+        {
+            console.log("Username Exists");
+            return "Username Exists";
+        }
+        else if(foundMatchingEmail)     // The email matched one that is already in the database
+        {
+            console.log("Email Exists");
+            return "Email Exists";
+        }
+        else                            // There are no matches in the database, create the account
+        {
+            firebase.database().ref("accounts/" + _accountToAdd.username.toString()).set(_accountToAdd);
+            console.log("Created Account");
+            return "Created Account";
+        }
+    })
+}
