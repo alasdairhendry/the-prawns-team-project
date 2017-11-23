@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--Import Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!--Import Custom Styles-->
+    <link type="text/css" rel="stylesheet" href="CSS/UserValidation.css">
+
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Import Javascript-->
+    <script src="JS/UserValidation.js"></script>
+
+    <!--FireBase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCbYpShuRDz_K5AXBI5C7a1QrObC9qUN8I",
+            authDomain: "fir-htmltest.firebaseapp.com",
+            databaseURL: "https://fir-htmltest.firebaseio.com",
+            projectId: "fir-htmltest",
+            storageBucket: "fir-htmltest.appspot.com",
+            messagingSenderId: "692577663068"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <link rel="icon" href="logo.png" >
+
+    <title>Contacts book</title>
+</head>
+
+
+<body>
+
+
+    <!--Define Main Content-->
+    <div class="container">
+        <div class="row">
+
+            <!--Login Column-->
+            <div class="col-sm-12">
+                <div class="content" id="loginDiv">
+                    <div class="imgcontainer"><img class="logo" src="logo.png"></div>
+                    <h1 style="text-align: center;">Log In</h1>
+                    <!--<input type="button" value="Register" class="tab">-->
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>Username:</b></label>
+                    <input class="text" type="text" placeholder="Enter Username..." id="logUsername" autofocus >
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Password:</b></label>
+                    <input class="text" type="password" placeholder="Enter Password..." id="logPassword" >
+                    <span style="transition-duration: .5s" id="logNotification"></span>
+                    <input class="button" style="margin-bottom: 1%; margin-top: 5%; font-size: large" type="button" value="Log In" id="logSubmit">
+                    <span  style="float: left" class="password">Forgot your <a id="forgotUsername" href="#" style="font-size: medium;color: #4790e9;">Username?</a></span>
+                    <span  class="password">Forgot your <a id="forgotPassword" href="#" style="font-size: medium; color: #4790e9;">Password?</a></span>
+                    <input class="button" style="margin-top: 10%" type="button" value="Don't Have An Account?" id="logRegister">
+                </div>
+            </div>
+
+            <!--Register Column-->
+            <div class="col-sm-12">
+                <div class="content" id="regDiv" style="display: none;">
+                    <div class="imgcontainer"><img class="logo" src="logo.png"></div>
+                    <h2 style="text-align: center;">Register</h2>
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>Username:</b></label>
+                    <input class="text" type="text" placeholder="Username..." id="regUsername">
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Email:</b></label>
+                    <input class="text" type="email" placeholder="Email..." id="regEmail">
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Password:</b></label>
+                    <input class="text" type="password" placeholder="Password..." id="regPassword">
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Confirm Password:</b></label>
+                    <input class="text" type="password" placeholder="Confirm Password..." id="regConPassword">
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Security text:</b></label>
+                    <input class="text" type="text" placeholder="Security text..." id="regSecurityText">
+                    <span style="transition-duration: .5s" id="regNotification"></span>
+                    <input class="button" type="button" value="Register" id="regSubmit">
+                    <input style="margin-top: 10%; background-color: red" class="button" type="button" value="Cancel" id="regCancel">
+                </div>
+            </div>
+
+            <!--Forgot Username Column-->
+            <div class="col-sm-12">
+                <div class="content" id="forgotUsernameDiv" style="display: none;">
+                    <div class="imgcontainer"><img class="logo" src="logo.png"></div>
+                    <h2 style="text-align: center;">Forgot Username</h2>
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Email:</b></label>
+                    <input class="text" type="email" placeholder="Email..." id="fuEmail"> <!--fu == forgot username-->
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>Security text:</b></label>
+                    <input class="text" type="text" placeholder="Security text..." id="fuSecurityText"> <!--fu == forgot username-->
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>New username:</b></label>
+                    <input class="text" type="text" placeholder="New password..." id="newUsername">
+                    <span style="transition-duration: .5s" id="fuNotification"></span> <!--fu == forgot username-->
+                    <input class="button" type="button" value="Submit" id="fuSubmit"> <!--fu == forgot username-->
+                    <input style="margin-top: 10%;background-color: red" class="button" type="button" value="Cancel" id="fuCancel"> <!--fu == forgot username-->
+                </div>
+            </div>
+
+
+
+            <!--Forgot Password Column-->
+            <div class="col-sm-12">
+                <div class="content" id="forgotPasswordDiv" style="display: none;">
+                    <div class="imgcontainer"><img class="logo" src="logo.png"></div>
+                    <h2 style="text-align: center;">Forgot Password</h2>
+                    <label style="margin-left: 5%; margin-top: 2%; margin-bottom: 0"><b>Email:</b></label>
+                    <input class="text" type="email" placeholder="Email..." id="fpEmail"> <!--fp == Forgot Username-->
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>Security text:</b></label>
+                    <input class="text" type="text" placeholder="Security text..." id="fpSecurityText"><!--fp == Forgot Password-->
+                    <label style="margin-left: 5%; margin-bottom: 0"><b>New password:</b></label>
+                    <input class="text" type="password" placeholder="New password..." id="newPassword">
+                    <span style="transition-duration: .5s" id="fpNotification"></span> <!--fp == forgot password-->
+                    <input class="button" type="button" value="Submit" id="fpSubmit"> <!--fp == Forgot Password-->
+                    <input style="margin-top: 10%;background-color: red" class="button" type="button" value="Cancel" id="fpCancel"> <!--fp == Forgot Password-->
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+</html>

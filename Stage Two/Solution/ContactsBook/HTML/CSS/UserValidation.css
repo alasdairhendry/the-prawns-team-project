@@ -1,0 +1,87 @@
+mainFont{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.mHeaderText{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    vertical-align: middle;
+    margin: 1%;
+    display: inline-block;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.logo {
+    width: 60%;
+    border: 1px solid #0b2f5b;
+    padding: 5px;
+    border-radius: 12.5px;
+
+}
+
+div.row {
+    margin-right: 55px;
+    margin-left: 55px;
+}
+
+div.content{
+
+    border-radius: 12.5px;
+    border: 5px #545454 solid;
+    margin:2% 25% 10% 25%;
+    transition-duration: .5s;
+    padding:10px;
+    background-color: #f2f2f2;
+}
+
+input{
+    border-radius: 10px;
+    border: 1px #545454 solid;
+    padding: 10px;
+    font-size: 15px;
+    outline:none;
+    transition-duration: .25s;
+}
+
+input.text{
+    width:90%;
+    margin:0%5%2%5%;
+}
+
+input.text:hover{
+    background-color: #c8c8c8;
+}
+
+input.text:focus{
+    background-color: #aaaaaa;
+
+}
+
+input.button{
+    width:90%;
+    margin:2%5%2%5%;
+    background-color: #4790e9;
+    color:white;
+    border-width: 0px;
+}
+
+input.button:hover{
+    background-color: #487bd5 ;
+
+}
+
+input.button:active{
+    background-color: #4aa0fd ;
+    transition-duration: .25s;
+}
+
+span.password {
+    float: right;
+    padding-top: 16px;
+}
