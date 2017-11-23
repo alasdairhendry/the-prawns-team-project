@@ -135,7 +135,7 @@ var ConfigureForgotUsername = function(){
                                 if (matchingUser.securityText == securityText.value) {
 
                                     newItemValue.username = username.value;
-                                    AddAccountToDatabase(newItemValue);
+                                    UpdateAccountOnDatabase(newItemValue);
 
 
                                     document.getElementById("forgotUsernameDiv").style["background-color"] = "green";
@@ -201,7 +201,7 @@ var ConfigureForgotPassword = function(){
                     if(matchingUser.securityText == securityText.value)
                     {
                         newItemValue.password = password.value;
-                        AddAccountToDatabase(newItemValue);
+                        UpdateAccountOnDatabase(newItemValue);
 
                         document.getElementById("forgotPasswordDiv").style["background-color"] = "green";
                         document.getElementById("fpNotification").innerHTML = "<p>Password changed</p>";
