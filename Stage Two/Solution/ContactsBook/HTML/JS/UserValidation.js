@@ -57,7 +57,7 @@ var ConfigureLogin = function () {
             var matchingUser = "";
 
             snapshot.forEach(function (child) {
-                var newItemValue = child.val();
+                var newItemValue = JSON.parse(child.val());
 
                 if(newItemValue.username == login.value) {
                     foundMatchingUser = true;
@@ -71,9 +71,7 @@ var ConfigureLogin = function () {
                 {
                     document.getElementById("loginDiv").style["background-color"] = "green";
                     document.getElementById("logNotification").innerHTML = "<p>Password Correct.</p>";
-                    window.location.href = "Homepage_Mockup/Index.html";
-
-
+                    LoadAccountPage(matchingUser.username);
                 }
                 else
                 {
