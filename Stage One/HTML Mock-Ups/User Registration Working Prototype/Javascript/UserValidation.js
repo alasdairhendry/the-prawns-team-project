@@ -100,6 +100,7 @@ var ConfigureForgotUsername = function(){
     var submit = document.getElementById("fuSubmit");
     var cancel = document.getElementById("fuCancel");
 
+
     cancel.onclick = function () {
         document.getElementById("forgotUsernameDiv").style["display"] = "none";
         document.getElementById("loginDiv").style["display"] = "block";
@@ -125,18 +126,18 @@ var ConfigureForgotUsername = function(){
                         foundMatchingUser = true;
                         matchingUser = newItemValue;
                     }
+
                     if (matchingUser.username == username.value) {
                         document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
                         document.getElementById("fuNotification").innerHTML = "<p>Username already exists.</p>";
                     }
-
                     else
                         {
 
 
                             if (foundMatchingUser) {
                                 if (matchingUser.securityText == securityText.value) {
-                                    firebase.database().ref("accounts/" + username.value).set({
+                                    firebase.database().ref("accounts/" + newItemValue.username).update({
                                         username: username.value
                                     });
                                     document.getElementById("forgotUsernameDiv").style["background-color"] = "green";
@@ -170,6 +171,7 @@ var ConfigureForgotPassword = function(){
     var submit = document.getElementById("fpSubmit");
     var cancel = document.getElementById("fpCancel");
 
+
     cancel.onclick = function () {
         document.getElementById("forgotPasswordDiv").style["display"] = "none";
         document.getElementById("loginDiv").style["display"] = "block";
@@ -193,15 +195,18 @@ var ConfigureForgotPassword = function(){
                 if(newItemValue.email == email.value) {
                     foundMatchingUser = true;
                     matchingUser = newItemValue;
+
                 }
 
                 if(foundMatchingUser)
                 {
                     if(matchingUser.securityText == securityText.value)
                     {
-                        firebase.database().ref("accounts/" + username.value).set({
-                            password: password.value
-                        });
+                        console.log("accounts/" + newItemValue.username);
+
+                        firebase.database().ref("accounts/" + newItemValue.username).update({
+                            password: password.value});
+
                         document.getElementById("forgotPasswordDiv").style["background-color"] = "green";
                         document.getElementById("fpNotification").innerHTML = "<p>Password changed</p>";
                         document.getElementById("forgotPasswordDiv").style["display"] = "none";
@@ -250,7 +255,7 @@ var ConfigureRegister = function () {
     }
 
     submit.onclick = function () {
-        if(username.value == "" || email.value == "" || password.value == "" || conPassword.value == "" || securityText == "")
+         if(username.value == "" || email.value == "" || password.value == "" || conPassword.value == "" || securityText.value == "")
             return;
 
         firebase.database().ref("accounts/").once("value").then(function (snapshot) {
