@@ -116,7 +116,7 @@ var ConfigureForgotUsername = function(){
 
 
                 snapshot.forEach(function (child) {
-                    var newItemValue = child.val();
+                    var newItemValue = JSON.parse(child.val());
 
                     if (newItemValue.email == email.value) {
                         foundMatchingUser = true;
@@ -133,9 +133,11 @@ var ConfigureForgotUsername = function(){
 
                             if (foundMatchingUser) {
                                 if (matchingUser.securityText == securityText.value) {
-                                    firebase.database().ref("accounts/" + newItemValue.username).update({
-                                        username: username.value
-                                    });
+
+                                    newItemValue.username = username.value;
+                                    AddAccountToDatabase(newItemValue);
+
+
                                     document.getElementById("forgotUsernameDiv").style["background-color"] = "green";
                                     document.getElementById("fuNotification").innerHTML = "<p>Username changed</p>";
                                     document.getElementById("forgotUsernameDiv").style["display"] = "none";
@@ -186,7 +188,7 @@ var ConfigureForgotPassword = function(){
             var matchingUser = "";
 
             snapshot.forEach(function (child) {
-                var newItemValue = child.val();
+                var newItemValue = JSON.parse(child.val());
 
                 if(newItemValue.email == email.value) {
                     foundMatchingUser = true;
@@ -198,10 +200,8 @@ var ConfigureForgotPassword = function(){
                 {
                     if(matchingUser.securityText == securityText.value)
                     {
-                        console.log("accounts/" + newItemValue.username);
-
-                        firebase.database().ref("accounts/" + newItemValue.username).update({
-                            password: password.value});
+                        newItemValue.password = password.value;
+                        AddAccountToDatabase(newItemValue);
 
                         document.getElementById("forgotPasswordDiv").style["background-color"] = "green";
                         document.getElementById("fpNotification").innerHTML = "<p>Password changed</p>";
