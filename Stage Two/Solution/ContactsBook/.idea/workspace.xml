@@ -49,37 +49,33 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/JS/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="173" column="40" lean-forward="true" selection-start-line="173" selection-start-column="40" selection-end-line="173" selection-end-column="40" />
+            <state relative-caret-position="272">
+              <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
               <folding>
-                <element signature="e#119#578#0" expanded="false" />
-                <element signature="e#410#464#0" expanded="false" />
-                <element signature="e#714#1073#0" expanded="false" />
-                <element signature="e#1108#1219#0" expanded="false" />
-                <element signature="e#1376#2138#0" expanded="false" />
-                <element signature="e#2183#2238#0" expanded="false" />
-                <element signature="e#2292#4058#0" expanded="false" />
-                <element signature="e#2439#4055#0" expanded="false" />
-                <element signature="e#2653#3299#0" expanded="false" />
-                <element signature="e#2915#3017#0" expanded="false" />
-                <element signature="e#3186#3289#0" expanded="false" />
-                <element signature="e#3411#3504#0" expanded="false" />
-                <element signature="e#3610#3697#0" expanded="false" />
-                <element signature="e#3806#4049#0" expanded="false" />
-                <element signature="e#4117#4303#0" expanded="false" />
-                <element signature="e#4352#4946#0" expanded="false" />
-                <element signature="e#4434#4943#0" expanded="false" />
-                <element signature="e#4537#4935#0" expanded="false" />
-                <element signature="e#4834#4925#0" expanded="false" />
+                <element signature="e#1231#1342#0" expanded="false" />
+                <element signature="e#1499#2261#0" expanded="false" />
+                <element signature="e#2306#2361#0" expanded="false" />
+                <element signature="e#2415#4181#0" expanded="false" />
+                <element signature="e#2562#4178#0" expanded="false" />
+                <element signature="e#2776#3422#0" expanded="false" />
+                <element signature="e#3038#3140#0" expanded="false" />
+                <element signature="e#3309#3412#0" expanded="false" />
+                <element signature="e#3534#3627#0" expanded="false" />
+                <element signature="e#3733#3820#0" expanded="false" />
+                <element signature="e#3929#4172#0" expanded="false" />
+                <element signature="e#4475#5069#0" expanded="false" />
+                <element signature="e#4557#5066#0" expanded="false" />
+                <element signature="e#4660#5058#0" expanded="false" />
+                <element signature="e#4957#5048#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserValidation.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserValidation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/UserValidation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="-295">
               <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
@@ -96,12 +92,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserValidation.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserValidation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HTML/JS/UserValidation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="446">
+              <caret line="294" column="53" lean-forward="false" selection-start-line="294" selection-start-column="53" selection-end-line="294" selection-end-column="53" />
+              <folding>
+                <element signature="e#548#3103#0" expanded="false" />
+                <element signature="e#1708#3101#0" expanded="false" />
+                <element signature="e#1923#2171#0" expanded="false" />
+                <element signature="e#3145#6227#0" expanded="false" />
+                <element signature="e#6272#8773#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,14 +174,14 @@
         <option value="$PROJECT_DIR$/JS/index.js" />
         <option value="$PROJECT_DIR$/JS/account.js" />
         <option value="$PROJECT_DIR$/CSS/main.css" />
-        <option value="$PROJECT_DIR$/HTML/JS/main.js" />
         <option value="$PROJECT_DIR$/HTML/CSS/main.css" />
         <option value="$PROJECT_DIR$/HTML/JS/account.js" />
         <option value="$PROJECT_DIR$/HTML/JS/index.js" />
         <option value="$PROJECT_DIR$/HTML/account.html" />
         <option value="$PROJECT_DIR$/HTML/index.html" />
-        <option value="$PROJECT_DIR$/HTML/JS/UserValidation.js" />
         <option value="$PROJECT_DIR$/HTML/UserValidation.html" />
+        <option value="$PROJECT_DIR$/HTML/JS/UserValidation.js" />
+        <option value="$PROJECT_DIR$/HTML/JS/main.js" />
       </list>
     </option>
   </component>
@@ -278,12 +280,12 @@
       <updated>1510327435390</updated>
       <workItem from="1510327440569" duration="300000" />
       <workItem from="1511369254271" duration="31525000" />
-      <workItem from="1511454631037" duration="3086000" />
+      <workItem from="1511454631037" duration="4041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34911000" />
+    <option name="totallyTimeSpent" value="35866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -355,25 +357,21 @@
         <state relative-caret-position="1173">
           <caret line="76" column="26" lean-forward="true" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
           <folding>
-            <element signature="e#119#578#0" expanded="false" />
-            <element signature="e#410#464#0" expanded="false" />
-            <element signature="e#714#1073#0" expanded="false" />
-            <element signature="e#1108#1219#0" expanded="false" />
-            <element signature="e#1376#2138#0" expanded="false" />
-            <element signature="e#2183#2238#0" expanded="false" />
-            <element signature="e#2292#4058#0" expanded="false" />
-            <element signature="e#2439#4055#0" expanded="false" />
-            <element signature="e#2653#3299#0" expanded="false" />
-            <element signature="e#2915#3017#0" expanded="false" />
-            <element signature="e#3186#3289#0" expanded="false" />
-            <element signature="e#3411#3504#0" expanded="false" />
-            <element signature="e#3610#3697#0" expanded="false" />
-            <element signature="e#3806#4049#0" expanded="false" />
-            <element signature="e#4117#4303#0" expanded="false" />
-            <element signature="e#4352#4946#0" expanded="false" />
-            <element signature="e#4434#4943#0" expanded="false" />
-            <element signature="e#4537#4935#0" expanded="false" />
-            <element signature="e#4834#4925#0" expanded="false" />
+            <element signature="e#1231#1342#0" expanded="false" />
+            <element signature="e#1499#2261#0" expanded="false" />
+            <element signature="e#2306#2361#0" expanded="false" />
+            <element signature="e#2415#4181#0" expanded="false" />
+            <element signature="e#2562#4178#0" expanded="false" />
+            <element signature="e#2776#3422#0" expanded="false" />
+            <element signature="e#3038#3140#0" expanded="false" />
+            <element signature="e#3309#3412#0" expanded="false" />
+            <element signature="e#3534#3627#0" expanded="false" />
+            <element signature="e#3733#3820#0" expanded="false" />
+            <element signature="e#3929#4172#0" expanded="false" />
+            <element signature="e#4475#5069#0" expanded="false" />
+            <element signature="e#4557#5066#0" expanded="false" />
+            <element signature="e#4660#5058#0" expanded="false" />
+            <element signature="e#4957#5048#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -646,26 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/JS/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/JS/UserValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -678,39 +660,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/JS/main.js">
+    <entry file="file://$PROJECT_DIR$/HTML/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="173" column="40" lean-forward="true" selection-start-line="173" selection-start-column="40" selection-end-line="173" selection-end-column="40" />
-          <folding>
-            <element signature="e#119#578#0" expanded="false" />
-            <element signature="e#410#464#0" expanded="false" />
-            <element signature="e#714#1073#0" expanded="false" />
-            <element signature="e#1108#1219#0" expanded="false" />
-            <element signature="e#1376#2138#0" expanded="false" />
-            <element signature="e#2183#2238#0" expanded="false" />
-            <element signature="e#2292#4058#0" expanded="false" />
-            <element signature="e#2439#4055#0" expanded="false" />
-            <element signature="e#2653#3299#0" expanded="false" />
-            <element signature="e#2915#3017#0" expanded="false" />
-            <element signature="e#3186#3289#0" expanded="false" />
-            <element signature="e#3411#3504#0" expanded="false" />
-            <element signature="e#3610#3697#0" expanded="false" />
-            <element signature="e#3806#4049#0" expanded="false" />
-            <element signature="e#4117#4303#0" expanded="false" />
-            <element signature="e#4352#4946#0" expanded="false" />
-            <element signature="e#4434#4943#0" expanded="false" />
-            <element signature="e#4537#4935#0" expanded="false" />
-            <element signature="e#4834#4925#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HTML/UserValidation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="-295">
           <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/JS/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <folding>
+            <element signature="e#1231#1342#0" expanded="false" />
+            <element signature="e#1499#2261#0" expanded="false" />
+            <element signature="e#2306#2361#0" expanded="false" />
+            <element signature="e#2415#4181#0" expanded="false" />
+            <element signature="e#2562#4178#0" expanded="false" />
+            <element signature="e#2776#3422#0" expanded="false" />
+            <element signature="e#3038#3140#0" expanded="false" />
+            <element signature="e#3309#3412#0" expanded="false" />
+            <element signature="e#3534#3627#0" expanded="false" />
+            <element signature="e#3733#3820#0" expanded="false" />
+            <element signature="e#3929#4172#0" expanded="false" />
+            <element signature="e#4475#5069#0" expanded="false" />
+            <element signature="e#4557#5066#0" expanded="false" />
+            <element signature="e#4660#5058#0" expanded="false" />
+            <element signature="e#4957#5048#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/JS/UserValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="294" column="53" lean-forward="false" selection-start-line="294" selection-start-column="53" selection-end-line="294" selection-end-column="53" />
+          <folding>
+            <element signature="e#548#3103#0" expanded="false" />
+            <element signature="e#1708#3101#0" expanded="false" />
+            <element signature="e#1923#2171#0" expanded="false" />
+            <element signature="e#3145#6227#0" expanded="false" />
+            <element signature="e#6272#8773#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

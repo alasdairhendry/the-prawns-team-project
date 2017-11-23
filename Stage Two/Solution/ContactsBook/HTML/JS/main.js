@@ -1,6 +1,6 @@
 var loggedInAccount;    // The account that is currently Logged in
 
-var Account = function (username, email, password) {
+var Account = function (username, email, password, securityText) {
     if(!username)
         this.username = "NewUser";
     else this.username = username;
@@ -12,6 +12,10 @@ var Account = function (username, email, password) {
     if(!password)
         this.password = "NewPassword";
     else this.password = password;
+
+    if(!securityText)
+        this.securityText = "NewSecurity";
+    else this.securityText = securityText;
 
     this.contacts = [];
 
@@ -171,7 +175,7 @@ var FindAccountByUsername = function(username)
 }
 
 var LoadAccountPage = function (username) {
-    document.location.href="http://localhost:63342/ContactsBook/HTML/account.html?name=" + username.toString();
+    document.location.href="ContactsBook/HTML/account.html?name=" + username.toString();
 }
 
 var Login = function (username) {

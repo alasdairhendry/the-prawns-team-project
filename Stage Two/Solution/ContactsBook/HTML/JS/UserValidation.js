@@ -89,8 +89,6 @@ var ConfigureLogin = function () {
     }
 }
 
-
-
 var ConfigureForgotUsername = function(){
     var email = document.getElementById("fuEmail");
     var securityText = document.getElementById("fuSecurityText");
@@ -264,7 +262,7 @@ var ConfigureRegister = function () {
 
 
             snapshot.forEach(function (child) {
-                var newItemValue = child.val();
+                var newItemValue = JSON.parse(child.val());
 
                 if(newItemValue.username.toLowerCase() == username.value.toLowerCase()) {
                     foundMatchingUser = true;
@@ -293,13 +291,15 @@ var ConfigureRegister = function () {
                 // Create User
                 if(password.value === conPassword.value)
                 {
-                    firebase.database().ref("accounts/" + username.value).set({
-                        username: username.value,
-                        password: password.value,
-                        email: email.value,
-                        securityText: securityText.value
-
-                    });
+                    var newAccount = new Account(username.value, email.value, password.value, securityText.value);
+                    AddAccountToDatabase(newAccount);
+                    // firebase.database().ref("accounts/" + username.value).set({
+                    //     username: username.value,
+                    //     password: password.value,
+                    //     email: email.value,
+                    //     securityText: securityText.value
+                    //
+                    // });
 
                     document.getElementById("regNotification").innerHTML = "<p>Account Created.</p>";
 
