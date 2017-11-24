@@ -11,6 +11,17 @@
     <!--JQuery Import-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!--GeoLocation Import-->
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyA3-cVCUvNlS_4hVr0Mk31K_lSvz9ZXHP8&ver=3.exp"></script>
+
+    <!--Mail Service Import-->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_hwi40Cl43xGuUhzjMyAMd");
+        })();
+    </script>
+
     <script src="../JS/main.js"></script>
     <script src="account.js"></script>
 
@@ -43,7 +54,7 @@
     <div class="row">
 
         <div class="col-md-6 vcenter"><h1 class="HeaderText" style="color: #ffffff;">Contacts Book</h1></div>
-        <div class="col-md-5 vcenter "><input class="SearchBar" type="text" value="Search..."></div>
+        <div class="col-md-5 vcenter "><input class="SearchBar" type="text" placeholder="Search..." id="searchBarMain"></div>
         <div class="col-md-1"><a class="MenuButton" href="">Menu</a></div>
 
     </div>
@@ -60,12 +71,12 @@
     <input type="button" class="SideBarButton" value="Find Duplicates">
     <input type="button" class="SideBarButton" value="Settings">
     <hr>
-    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = '../index.html';">
+    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = '../UserValidation.html';">
 
     <br>
     <br>
 
-    <input type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block;">
+    <input id="userIcon" type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block; font-weight: bold; font-size: 20px">
     <p style="display: inline-block; vertical-align:top; margin: 5px;" id="usernameLogout"}></p>
 </div>
 
@@ -106,14 +117,17 @@
 
         <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
 
-            <p style="display: inline-block;">Personal Details</p>      <input style="display: inline-block;" type="checkbox"><br/>
+            <p style="display: inline-block;">Personal Details</p><br/>
             <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="First Name..." id="acForename">
             <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Last Name..." id="acSurname">
 
-            <p style="display: inline-block;">Address Details</p>       <input style="display: inline-block;" type="button" value="GeoLocation"><br/>
+            <p style="display: inline-block;">Address Details</p><br/>
 
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 1..." id="acAddOne">
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 2..." id="acAddTwo">
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Address Line 1..." id="acAddOne">
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Address Line 2..." id="acAddTwo">
+
+            <input style="display: inline-block; width: 25px; height: 25px;" type="image" src="Images/location.png" id="acGeoBTN"><br/>
+
             <input class="InputBox" type="text" placeholder="Postcode..." id="acPostcode">
             <input class="InputBox" type="text" placeholder="City..." id="acCity">
             <input class="InputBox" type="text" placeholder="Country..." id="acCountry">
@@ -147,14 +161,17 @@
 
         <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
 
-            <p style="display: inline-block;">Personal Details</p>      <input style="display: inline-block;" type="checkbox"><br/>
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="First Name..." id="ecForename">
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Last Name..." id="ecSurname">
+            <p style="display: inline-block;">Personal Details</p><br/>
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="First Name..." id="ecForename">
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Last Name..." id="ecSurname">
+            <input style="display: inline-block; width: 25px; height: 25px;" type="image" src="Images/favouriteBorder.png" id="ecFavouriteIMG"}><br/>
 
-            <p style="display: inline-block;">Address Details</p>       <input style="display: inline-block;" type="button" value="GeoLocation"><br/>
+            <p style="display: inline-block;">Address Details</p><br/>
 
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 1..." id="ecAddOne">
-            <input class="InputBox" style="width:46%; display: inline-block;" type="text" placeholder="Address Line 2..." id="ecAddTwo">
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Address Line 1..." id="ecAddOne">
+            <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Address Line 2..." id="ecAddTwo">
+            <input style="display: inline-block; width: 25px; height: 25px;" type="image" src="Images/location.png" id="ecGeoBTN"><br/>
+
             <input class="InputBox" type="text" placeholder="Postcode..." id="ecPostcode">
             <input class="InputBox" type="text" placeholder="City..." id="ecCity">
             <input class="InputBox" type="text" placeholder="Country..." id="ecCountry">
@@ -190,7 +207,7 @@
 
             <input class="InputBox" type="text" placeholder="To..." id="emailContact_Email">
             <input class="InputBox" type="text" placeholder="Subject..." id="emailContact_Subject">
-            <input class="InputBox" style="height:400px; vertical-align: top;" type="text" placeholder="Body..." id="emailContact_Body">
+            <input class="InputBox" style="height:400px; vertical-align: top; word-break: keep-all" type="text" placeholder="Body..." id="emailContact_Body">
 
         </div>
 

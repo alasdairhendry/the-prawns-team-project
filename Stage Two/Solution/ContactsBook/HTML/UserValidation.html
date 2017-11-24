@@ -12,6 +12,14 @@
     <!--Import Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <!--Mail Service Import-->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_hwi40Cl43xGuUhzjMyAMd");
+        })();
+    </script>
+
     <!--Import Javascript-->
     <script src="JS/UserValidation.js"></script>
     <script src="JS/main.js"></script>
@@ -93,11 +101,12 @@
                     <input class="text" type="email" placeholder="Email..." id="fuEmail"> <!--fu == forgot username-->
                     <label style="margin-left: 5%; margin-bottom: 0"><b>Security text:</b></label>
                     <input class="text" type="text" placeholder="Security text..." id="fuSecurityText"> <!--fu == forgot username-->
-                    <label style="margin-left: 5%; margin-bottom: 0"><b>New username:</b></label>
-                    <input class="text" type="text" placeholder="New password..." id="newUsername">
+                    <!--<label style="margin-left: 5%; margin-bottom: 0"><b>New username:</b></label>-->
+                    <!--<input class="text" type="text" placeholder="New password..." id="newUsername">-->
                     <span style="transition-duration: .5s" id="fuNotification"></span> <!--fu == forgot username-->
+                    <p style="margin: 3% 5%; text-align: center">If your email address and security information match our records, you will recieve an email containing your username.</p>
                     <input class="button" type="button" value="Submit" id="fuSubmit"> <!--fu == forgot username-->
-                    <input style="margin-top: 10%;background-color: red" class="button" type="button" value="Cancel" id="fuCancel"> <!--fu == forgot username-->
+                    <input style="margin-top: 1%;background-color: red" class="button" type="button" value="Cancel" id="fuCancel"> <!--fu == forgot username-->
                 </div>
             </div>
 
@@ -116,7 +125,7 @@
                     <input class="text" type="password" placeholder="New password..." id="newPassword">
                     <span style="transition-duration: .5s" id="fpNotification"></span> <!--fp == forgot password-->
                     <input class="button" type="button" value="Submit" id="fpSubmit"> <!--fp == Forgot Password-->
-                    <input style="margin-top: 10%;background-color: red" class="button" type="button" value="Cancel" id="fpCancel"> <!--fp == Forgot Password-->
+                    <input style="margin-top: 1%;background-color: red" class="button" type="button" value="Cancel" id="fpCancel"> <!--fp == Forgot Password-->
                 </div>
             </div>
 

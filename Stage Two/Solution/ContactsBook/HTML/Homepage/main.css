@@ -38,12 +38,27 @@ div.contact{
     border-radius: 15px;
 }
 
+div.contactN{
+    overflow:hidden;
+    margin:15px;
+    padding:5px;
+    border-radius: 15px;
+    background-color: #e6e6e6;
+}
+
 div.contact:hover{
     background-color: lightgray;
     transition-duration: .5s;
 }
 
-div.contactEmailBTN{}
+div.contactN:hover{
+    background-color: lightgray;
+    transition-duration: .5s;
+}
+
+input.contactEmailBTN{ background-image: url("Images/emailIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
+input.callEmailBTN{ background-image: url("Images/callIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
+input.smsEmailBTN{ background-image: url("Images/smsIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
 
 input.floatingButton{
     border-radius: 100%; border-width: 0; width: 64px; height: 64px;
@@ -114,8 +129,7 @@ input.InputBox{
     border-radius: 10px;
     border-width: 0px;
     padding: 0px 15px 0px 15px;
-    color: #c8c8c8;
-    font-style: oblique;
+    color: #333333;
     transition-duration: .5s;
 }
 

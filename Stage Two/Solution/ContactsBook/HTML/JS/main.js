@@ -203,3 +203,7 @@ var Login = function (username) {
         }
     })
 }
+
+var SendEmail = function (from, to, subject, body) {
+    emailjs.send("gmail", "template_51qiAK6f", {"send_to":to,"from_email":from,"from_name":subject,"message_html":body});
+}

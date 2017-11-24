@@ -92,7 +92,6 @@ var ConfigureLogin = function () {
 var ConfigureForgotUsername = function(){
     var email = document.getElementById("fuEmail");
     var securityText = document.getElementById("fuSecurityText");
-    var username = document.getElementById("newUsername");
     var submit = document.getElementById("fuSubmit");
     var cancel = document.getElementById("fuCancel");
 
@@ -106,7 +105,7 @@ var ConfigureForgotUsername = function(){
     }
 
         submit.onclick = function () {
-            if(email.value == "" || securityText.value == "" || username.value == "")
+            if(email.value == "" || securityText.value == "")
                 return;
 
             firebase.database().ref("accounts/").once("value").then(function (snapshot) {
@@ -123,36 +122,31 @@ var ConfigureForgotUsername = function(){
                         matchingUser = newItemValue;
                     }
 
-                    if (matchingUser.username == username.value) {
-                        document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
-                        document.getElementById("fuNotification").innerHTML = "<p>Username already exists.</p>";
-                    }
-                    else
+                    if (foundMatchingUser)
+                    {
+                        if (matchingUser.securityText == securityText.value)
                         {
 
+                            // newItemValue.username = username.value;
+                            // UpdateAccountOnDatabase(newItemValue);
+                            SendEmail("alasdairhendry@gmail.com", matchingUser.email, "Forgotten your ContactsBook Username?" , "Hi, your Username is " + matchingUser.username + ". Best Regards, The Prawns Support Team.");
 
-                            if (foundMatchingUser) {
-                                if (matchingUser.securityText == securityText.value) {
-
-                                    newItemValue.username = username.value;
-                                    UpdateAccountOnDatabase(newItemValue);
-
-
-                                    document.getElementById("forgotUsernameDiv").style["background-color"] = "green";
-                                    document.getElementById("fuNotification").innerHTML = "<p>Username changed</p>";
-                                    document.getElementById("forgotUsernameDiv").style["display"] = "none";
-                                    document.getElementById("loginDiv").style["display"] = "block";
-                                }
-                                else {
-                                    document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
-                                    document.getElementById("fuNotification").innerHTML = "<p>Incorrect security question.</p>";
-                                }
-                            }
-                            else {
-                                document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
-                                document.getElementById("fuNotification").innerHTML = "<p>User Does Not Exist.</p>";
-                            }
+                            document.getElementById("forgotUsernameDiv").style["background-color"] = "green";
+                            document.getElementById("fuNotification").innerHTML = "<p>Username changed</p>";
+                            document.getElementById("forgotUsernameDiv").style["display"] = "none";
+                            document.getElementById("loginDiv").style["display"] = "block";
                         }
+                        else
+                        {
+                            document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
+                            document.getElementById("fuNotification").innerHTML = "<p>Incorrect security question.</p>";
+                        }
+                    }
+                    else
+                    {
+                        document.getElementById("forgotUsernameDiv").style["background-color"] = "#fd7871";
+                        document.getElementById("fuNotification").innerHTML = "<p>User Does Not Exist.</p>";
+                    }
                 });
 
             })
