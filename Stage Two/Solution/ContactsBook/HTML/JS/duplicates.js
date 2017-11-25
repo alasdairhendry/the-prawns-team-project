@@ -53,6 +53,7 @@
         // window.history.pushState("object or string", "Contacts Book", "ContactsBook/HTML/account.html");
     }
 
+
     var array = new array();
 
     function duplicates() {
