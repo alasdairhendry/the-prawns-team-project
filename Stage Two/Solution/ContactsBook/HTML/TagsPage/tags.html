@@ -50,12 +50,12 @@
 <!--SIDE NAVIGATION BAR-->
 
 <div class="SideBar">
-    <input type="button" class="SideBarButton" value="Contacts">
+    <input type="button" class="SideBarButton" value="Contacts" onclick="LoadAccountPage(loggedInAccount.username)">
     <input type="button" class="SideBarButton" value="Favourites">
     <input type="button" class="SideBarButton" value="Tags">
     <hr>
-    <input type="button" class="SideBarButton" value="Find Duplicates" onclick="document.location.href='../duplicates.html';">
-    <input type="button" class="SideBarButton" value="Settings">
+    <input type="button" class="SideBarButton" value="Find Duplicates" onclick="LoadDuplicatesPage(loggedInAccount.username)">
+    <input type="button" class="SideBarButton" value="Settings" onclick="LoadSettingsPage(loggedInAccount.username)">
     <hr>
     <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = '../UserValidation.html';">
 

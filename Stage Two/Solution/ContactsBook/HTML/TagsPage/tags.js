@@ -13,6 +13,41 @@ window.onload = function () {
     cancelAddTagBTN.onclick = function () {
         OnClick_CancelAddTag();
     }
+
+    CheckURL();
+}
+
+var CheckURL = function () {
+
+    var url = document.location.href;
+
+    // Make Sure we have a username, or return to login page
+    if(!url.includes("name="))
+    {
+        console.log("Does not include name tag");
+        document.location.href = "../UserValidation.html";
+    }
+
+    var params = url.split('?')[1].split('&'),
+        data = {}, tmp;
+
+    for (var i = 0, l = params.length; i < l; i++) {
+        tmp = params[i].split('=');
+        data[tmp[0]] = tmp[1];
+    }
+
+    // We made it this far so we have a username, Call Login for that username
+    Login(data.name);
+}
+
+var OnLoginSuccess = function () {
+    FillOutHTML();
+}
+
+var FillOutHTML = function () {
+    document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
+    var icon = document.getElementById("userIcon");
+    icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
 }
 
 var currentColour;
@@ -116,6 +151,8 @@ var OnClick_ConfirmAddTag = function () {
     var rgb = currentColour.match(/\d+/g);
 
     var tag = new Tag(textField.value.toString(), rgbToHex(rgb[0], rgb[1], rgb[2]));
+    loggedInAccount.tags.push(tag);
+    UpdateAccountOnDatabase(loggedInAccount);
 
     console.log(tag);
 }

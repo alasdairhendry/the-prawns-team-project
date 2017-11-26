@@ -176,7 +176,19 @@ var FindAccountByUsername = function(username)
 }
 
 var LoadAccountPage = function (username) {
-    document.location.href="Homepage/account.html?name=" + username.toString();
+    document.location.href="../Homepage/account.html?name=" + username.toString();
+}
+
+var LoadTagPage = function (username) {
+    document.location.href="../TagsPage/tags.html?name=" + username.toString();
+}
+
+var LoadDuplicatesPage = function (username) {
+    document.location.href="../duplicates.html?name=" + username.toString();
+}
+
+var LoadSettingsPage = function (username) {
+    document.location.href="../Settings/settings.html?name=" + username.toString();
 }
 
 var Login = function (username) {
