@@ -17,12 +17,8 @@ var Account = function (username, email, password, securityText) {
         this.securityText = "NewSecurity";
     else this.securityText = securityText;
 
+    this.tags = [];
     this.contacts = [];
-
-    // this.AddNewContact = function (forename, surname) {
-    //     var newContact = new Contact(forename, surname);
-    //     this.contacts.push(newContact);
-    // }
 }
 
 var Contact = function (forename, surname, addOne, addTwo, postcode, city, country, mobilePhone, homePhone, email, isFavourite, tags) {
@@ -88,6 +84,11 @@ var AddContactToAccount = function (account, forename, surname, addOne, addTwo, 
 
     var newContact = new Contact(forename, surname, addOne, addTwo, postcode, city, country, mobilePhone, homePhone, email, isFavourite, tags);
     loggedInAccount.contacts.push(newContact);
+}
+
+var AddTagToAccount = function(account, tag)
+{
+    account.tags.push(tag);
 }
 
 var AddTagToContact = function(index, tag)

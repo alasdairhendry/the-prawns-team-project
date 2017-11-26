@@ -49,6 +49,15 @@ var CheckURL = function () {
 }
 
 var OnLoginSuccess = function () {
+    if(loggedInAccount.tags.length<= 0)
+    {
+        var familyTag = new Tag("Family", "#42c5f4");
+        var friendlyTag = new Tag("Friend", "#4df441");
+        AddTagToAccount(loggedInAccount, familyTag);
+        AddTagToAccount(loggedInAccount, friendlyTag);
+        UpdateAccountOnDatabase(loggedInAccount);
+    }
+
     FillOutHTML();
     // window.history.pushState("object or string", "Contacts Book", "ContactsBook/HTML/account.html");
 }
@@ -72,7 +81,7 @@ var FillOutHTML= function () {
             if(loggedInAccount.contacts[i].tags) {
                 for (var y = 0; y < loggedInAccount.contacts[i].tags.length; y++) {
                     contactsHTML += "<span style='color: " + loggedInAccount.contacts[i].tags[y].colour.toString() + "; font-weight: bold '>";
-                    contactsHTML += loggedInAccount.contacts[i].tags[y].name;
+                    contactsHTML += loggedInAccount.contacts[i].tags[y].name + " ";
                     contactsHTML += "</span>";
                 }
             }
@@ -196,7 +205,10 @@ var OnSearch = function () {
     }
 }
 
+var addContactTagsSelected = [];
+var editContactTagsSelected = [];
 var OnClick_AddContact = function () {
+    addContactTagsSelected = [];
     var modal = document.getElementById("addContactModal");
     modal.style.display = "block";
 
@@ -244,6 +256,38 @@ var OnClick_AddContact = function () {
                 console.log("Callback Failed");
             })
     }
+
+    var tagHTML = "";
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        tagHTML += "<input type='button' class='InputBox' value='"+loggedInAccount.tags[i].name+"' style='display: inline-block; background-color: " + loggedInAccount.tags[i].colour +"' id='acTag"+ loggedInAccount.tags[i].name +"'>";
+        tagHTML += "<input type='image' src='Images/tick.png' style='display: none; margin-left: -48px; margin-bottom: -5px; border-radius: 5px; border-width: 0; width: 24px; height: 24px;'>";
+    }
+
+    var div = document.getElementById("acTagContainer");
+    div.innerHTML = tagHTML;
+
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        var tagButton = document.getElementById("acTag" + loggedInAccount.tags[i].name);
+        tagButton.onclick = function (num) {
+            return function () {
+                var thisButton = document.getElementById("acTag" + loggedInAccount.tags[num].name);
+
+                if(addContactTagsSelected.indexOf(loggedInAccount.tags[num]) > -1)
+                {
+                    addContactTagsSelected.splice(addContactTagsSelected.indexOf(loggedInAccount.tags[num]), 1);
+                    thisButton.nextSibling.style.display = "none";
+                }
+                else
+                {
+                    addContactTagsSelected.push(loggedInAccount.tags[num]);
+                    thisButton.nextSibling.style.display = "inline-block";
+                    console.log(tagButton.nextSibling);
+                }
+            }
+        }(i);
+    }
 }
 
 var OnClick_ConfirmAddContact = function () {
@@ -260,7 +304,14 @@ var OnClick_ConfirmAddContact = function () {
     var homePhone = document.getElementById("acHomePhone");
     var email = document.getElementById("acEmail");
 
-    AddContactToAccount(loggedInAccount.value, forename.value, surname.value, addOne.value, addTwo.value, postcode.value, city.value, country.value, mobile.value, homePhone.value, email.value, false);
+    var tags = [];
+
+    for(var i = 0; i < addContactTagsSelected.length; i ++)
+    {
+        tags.push(new Tag(addContactTagsSelected[i].name, addContactTagsSelected[i].colour));
+    }
+
+    AddContactToAccount(loggedInAccount.value, forename.value, surname.value, addOne.value, addTwo.value, postcode.value, city.value, country.value, mobile.value, homePhone.value, email.value, false, tags);
     UpdateAccountOnDatabase(loggedInAccount);
     FillOutHTML();
 
@@ -311,6 +362,7 @@ var OnClick_CancelAddContact = function () {
 }
 
 var OnClick_EditContact = function (index, array) {
+    editContactTagsSelected = [];
     var modal = document.getElementById("editContactModal");
     modal.style.display = "block";
 
@@ -411,6 +463,52 @@ var OnClick_EditContact = function (index, array) {
 
     var deleteBTN = document.getElementById("deleteEditContactBTN");
     deleteBTN.onclick = function() {OnClick_DeleteEditContact(contact);}
+
+    var tagHTML = "";
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        tagHTML += "<input type='button' class='InputBox' value='"+loggedInAccount.tags[i].name+"' style='display: inline-block; background-color: " + loggedInAccount.tags[i].colour +"' id='ecTag"+ loggedInAccount.tags[i].name +"'>";
+
+        var foundTag = false;
+        for(var y = 0; y < contact.tags.length; y++)
+        {
+            if(contact.tags[y].name === loggedInAccount.tags[i].name)
+                foundTag = true;
+        }
+
+        if(!foundTag) {
+            tagHTML += "<input type='image' src='Images/tick.png' style='display: none; margin-left: -48px; margin-bottom: -5px; border-radius: 5px; border-width: 0; width: 24px; height: 24px;'>";
+            console.log("didnt find tag");
+        }
+        else {
+            tagHTML += "<input type='image' src='Images/tick.png' style='display: inline-block; margin-left: -48px; margin-bottom: -5px; border-radius: 5px; border-width: 0; width: 24px; height: 24px;'>";
+            editContactTagsSelected.push(loggedInAccount.tags[i]);
+        }
+    }
+
+    var div = document.getElementById("ecTagContainer");
+    div.innerHTML = tagHTML;
+
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        var tagButton = document.getElementById("ecTag" + loggedInAccount.tags[i].name);
+        tagButton.onclick = function (num) {
+            return function () {
+                var thisButton = document.getElementById("ecTag" + loggedInAccount.tags[num].name);
+
+                if(editContactTagsSelected.indexOf(loggedInAccount.tags[num]) > -1)
+                {
+                    editContactTagsSelected.splice(editContactTagsSelected.indexOf(loggedInAccount.tags[num]), 1);
+                    thisButton.nextSibling.style.display = "none";
+                }
+                else
+                {
+                    editContactTagsSelected.push(loggedInAccount.tags[num]);
+                    thisButton.nextSibling.style.display = "inline-block";
+                }
+            }
+        }(i);
+    }
 }
 
 var OnClick_UpdateEditContact = function (contact) {
@@ -441,7 +539,11 @@ var OnClick_UpdateEditContact = function (contact) {
     contact.homePhone = homePhone.value;
     contact.email = email.value;
 
-    console.log(isFavourite.src.toString());
+    contact.tags = [];
+    for(var i = 0; i < editContactTagsSelected.length; i ++)
+    {
+        contact.tags.push(new Tag(editContactTagsSelected[i].name, editContactTagsSelected[i].colour));
+    }
 
     document.getElementById('editContactModal').style.display='none'
 
