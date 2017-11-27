@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
 
     <!--JQuery Import-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,8 +22,8 @@
         })();
     </script>
 
-    <script src="../JS/main.js"></script>
-    <script src="account.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/account.js"></script>
 
     <!--FireBase Initialization-->
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
@@ -71,7 +71,7 @@
     <input type="button" class="SideBarButton" value="Find Duplicates" onclick="LoadDuplicatesPage(loggedInAccount.username)">
     <input type="button" class="SideBarButton" value="Settings" onclick="LoadSettingsPage(loggedInAccount.username)">
     <hr>
-    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = '../UserValidation.html';">
+    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = 'UserValidation.html';">
 
     <br>
     <br>
@@ -171,7 +171,7 @@
             <p style="display: inline-block;">Personal Details</p><br/>
             <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="First Name..." id="ecForename">
             <input class="InputBox" style="width:43%; display: inline-block;" type="text" placeholder="Last Name..." id="ecSurname">
-            <input style="display: inline-block; width: 25px; height: 25px;" type="image" src="Images/favouriteBorder.png" id="ecFavouriteIMG"}><br/>
+            <input style="display: inline-block; width: 25px; height: 25px;" type="image" src="Images/favouriteBorder.png" id="ecFavouriteIMG" }><br/>
 
             <p style="display: inline-block;">Address Details</p><br/>
 

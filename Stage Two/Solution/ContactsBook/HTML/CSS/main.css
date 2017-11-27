@@ -56,9 +56,9 @@ div.contactN:hover{
     transition-duration: .5s;
 }
 
-input.contactEmailBTN{ background-image: url("Images/emailIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
-input.callEmailBTN{ background-image: url("Images/callIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
-input.smsEmailBTN{ background-image: url("Images/smsIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
+input.contactEmailBTN{ background-image: url("../Images/emailIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
+input.callEmailBTN{ background-image: url("../Images/callIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
+input.smsEmailBTN{ background-image: url("../Images/smsIcon.png"); background-repeat: no-repeat; background-size: 20px; background-origin: content-box; background-position-y: 5px;}
 
 input.floatingButton{
     border-radius: 100%; border-width: 0; width: 64px; height: 64px;

@@ -19,6 +19,7 @@ var Account = function (username, email, password, securityText) {
 
     this.tags = [];
     this.contacts = [];
+    this.addedTags = false;
 }
 
 var Contact = function (forename, surname, addOne, addTwo, postcode, city, country, mobilePhone, homePhone, email, isFavourite, tags) {
@@ -175,20 +176,24 @@ var FindAccountByUsername = function(username)
     })
 }
 
+var LoadValidationPage = function () {
+    document.location.href = "../HTML/UserValidation.html";
+}
+
 var LoadAccountPage = function (username) {
-    document.location.href="../Homepage/account.html?name=" + username.toString();
+    document.location.href="../HTML/account.html?name=" + username.toString();
 }
 
 var LoadTagPage = function (username) {
-    document.location.href="../TagsPage/tags.html?name=" + username.toString();
+    document.location.href="../HTML/tags.html?name=" + username.toString();
 }
 
 var LoadDuplicatesPage = function (username) {
-    document.location.href="../duplicates.html?name=" + username.toString();
+    document.location.href="../HTML/duplicates.html?name=" + username.toString();
 }
 
 var LoadSettingsPage = function (username) {
-    document.location.href="../Settings/settings.html?name=" + username.toString();
+    document.location.href="../HTML/settings.html?name=" + username.toString();
 }
 
 var Login = function (username) {
@@ -213,6 +218,7 @@ var Login = function (username) {
         if(!foundUser)
         {
             console.log("ERROR LOGGING IN");
+            LoadValidationPage();
         }
     })
 }

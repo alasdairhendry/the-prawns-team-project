@@ -33,7 +33,7 @@ var CheckURL = function () {
     if(!url.includes("name="))
     {
         console.log("Does not include name tag");
-        document.location.href = "../UserValidation.html";
+        LoadValidationPage();
     }
 
         var params = url.split('?')[1].split('&'),
@@ -49,12 +49,13 @@ var CheckURL = function () {
 }
 
 var OnLoginSuccess = function () {
-    if(loggedInAccount.tags.length<= 0)
+    if(loggedInAccount.tags.length<= 0 && loggedInAccount.addedTags === false)
     {
         var familyTag = new Tag("Family", "#42c5f4");
         var friendlyTag = new Tag("Friend", "#4df441");
         AddTagToAccount(loggedInAccount, familyTag);
         AddTagToAccount(loggedInAccount, friendlyTag);
+        loggedInAccount.addedTags = true;
         UpdateAccountOnDatabase(loggedInAccount);
     }
 
@@ -108,6 +109,17 @@ var FillOutHTML= function () {
         }(i);
     }
 
+    var callBTNS = document.getElementsByClassName("callEmailBTN");
+
+    for(var i = 0; i < callBTNS.length; i++)
+    {
+        callBTNS[i].onclick = function (num) {
+            return function () {
+                document.location.href = "+" + loggedInAccount.contacts[num].mobilePhone;
+            }
+        }(i);
+    }
+
     var contacts = document.getElementsByClassName("contact");
 
     for(var i = 0; i < contacts.length; i++)
@@ -155,6 +167,21 @@ var OnSearch = function () {
         else if(contact.mobilePhone.toString().toLowerCase().includes(searchValue.toString().toLowerCase()))
         {
             filtered.push(contact);
+        }
+        else
+        {
+            var foundTag = false;
+
+            for(var y = 0; y < loggedInAccount.contacts[i].tags.length; y++)
+            {
+                if(loggedInAccount.contacts[i].tags[y].name.toString().toLowerCase().includes(searchValue.toString().toLowerCase()))
+                {
+                    foundTag = true;
+                }
+            }
+
+            if(foundTag)
+                filtered.push(contact);
         }
     }
 

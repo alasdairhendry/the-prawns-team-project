@@ -25,7 +25,7 @@ var CheckURL = function () {
     if(!url.includes("name="))
     {
         console.log("Does not include name tag");
-        document.location.href = "../UserValidation.html";
+        LoadValidationPage();
     }
 
     var params = url.split('?')[1].split('&'),
@@ -48,12 +48,65 @@ var FillOutHTML = function () {
     document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
     var icon = document.getElementById("userIcon");
     icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
+
+    var html = "";
+    for (var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        html += "<div id='tag'>"
+        html += "<input type='button' class='InputBox' style='background-color: #d6947f; display: inline-block; width: 2.5%;' id='tagButtonRemove_"+ loggedInAccount.tags[i].name + "' value='X'>";
+        html += "<input type='button' class='InputBox' style='background-color: " + loggedInAccount.tags[i].colour + "; display: inline-block; max-width: 90%' id='tagButton_"+ loggedInAccount.tags[i].name + "' value='" + loggedInAccount.tags[i].name + "'>";
+        html += "</div>";
+    }
+
+    document.getElementById("tagsContainer").innerHTML = html;
+
+    for (var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        var button = document.getElementById("tagButtonRemove_" + loggedInAccount.tags[i].name);
+        console.log(button);
+        button.onclick = function (num) {
+            return function () {
+                RemoveTag(num);
+            }
+        }(i);
+    }
 }
 
 var currentColour;
 
+var RemoveTag = function (index) {
+    console.log(index);
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        if(index === i )
+        {
+            for(var x = 0; x < loggedInAccount.contacts.length; x++)
+            {
+                for(var y = 0; y < loggedInAccount.contacts[x].tags.length; y++)
+                {
+                    if(loggedInAccount.contacts[x].tags[y].name == loggedInAccount.tags[i].name)
+                    {
+                        loggedInAccount.contacts[x].tags.splice(y, 1);
+                    }
+                }
+            }
+
+            loggedInAccount.tags.splice(i, 1);
+            UpdateAccountOnDatabase(loggedInAccount);
+            FillOutHTML();
+            return;
+        }
+    }
+}
+
 var OnClick_AddTagButton = function () {
     document.getElementById("addTagModal").style.display = "block";
+
+    var textField = document.getElementById("addTag_Name");
+    textField.value = "";
+    var notification = document.getElementById("addTagNotificationArea");
+    notification.innerHTML = "";
+
     var lightRed = document.getElementById("newTagColour_LightRed");
     var darkRed = document.getElementById("newTagColour_DarkRed");
 
@@ -148,13 +201,32 @@ var OnClick_AddTagButton = function () {
 
 var OnClick_ConfirmAddTag = function () {
     var textField = document.getElementById("addTag_Name");
-    var rgb = currentColour.match(/\d+/g);
 
-    var tag = new Tag(textField.value.toString(), rgbToHex(rgb[0], rgb[1], rgb[2]));
+    var rgb = currentColour.match(/\d+/g);
+    var hexValue = rgbToHex(rgb[0], rgb[1], rgb[2]);
+
+    var matchingTag = false;
+
+    for(var i = 0; i < loggedInAccount.tags.length; i++)
+    {
+        console.log(loggedInAccount.tags[i].name);
+        console.log(textField.value.toString());
+        if(loggedInAccount.tags[i].name === textField.value.toString())
+         matchingTag = true;
+    }
+
+    if(matchingTag)
+    {
+        var notification = document.getElementById("addTagNotificationArea");
+        notification.innerHTML = "This tag already exists";
+        return;
+    }
+
+    var tag = new Tag(textField.value.toString(), hexValue);
     loggedInAccount.tags.push(tag);
     UpdateAccountOnDatabase(loggedInAccount);
-
-    console.log(tag);
+    FillOutHTML();
+    OnClick_CancelAddTag();
 }
 
 var OnClick_CancelAddTag = function () {

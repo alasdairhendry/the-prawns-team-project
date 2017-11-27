@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="../Homepage/main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
 
-    <script src="tags.js"></script>
-    <script src="../JS/main.js"></script>
+    <script src="JS/tags.js"></script>
+    <script src="JS/main.js"></script>
 
     <!--FireBase Initialization-->
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
@@ -57,7 +57,7 @@
     <input type="button" class="SideBarButton" value="Find Duplicates" onclick="LoadDuplicatesPage(loggedInAccount.username)">
     <input type="button" class="SideBarButton" value="Settings" onclick="LoadSettingsPage(loggedInAccount.username)">
     <hr>
-    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = '../UserValidation.html';">
+    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = 'UserValidation.html';">
 
     <br>
     <br>
@@ -70,17 +70,8 @@
 
 <div class="Main">
     <h1> Tags</h1>
-    <div id="contacts" style="max-height: 700px; overflow-y: auto;">
-        <div id="contact" class="contact">
-            <div class="col-md-1"><input type="checkbox"></div>
-            <div class="col-md-3"><p>Bob Ross</p></div>
-            <div class="col-md-2"><p>07852925503</p></div>
-            <div class="col-md-3"><p>boss.rob@gmail.com</p></div>
-            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="C"></div>
-            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="S"></div>
-            <div class="col-md-1"><input type="button" style="border-radius: 100%; border-width: 0px; width: 32px; height: 32px" value="E"></div>
-        </div>
-        <span style="color: #60FD36;"></span>
+    <div id="tagsContainer" style="max-height: 700px; overflow-y: auto;">
+
     </div>
 </div>
 
@@ -103,6 +94,7 @@
 
         <div class="w3-container" style="padding: 15px; max-height: 400px; overflow-y: auto; border-radius: 15px">
             <input class="InputBox" placeholder="Name..." type="text" id="addTag_Name">
+            <span id="addTagNotificationArea"></span>
 
             <input class="InputBox" type="button" style="background-color: #9cbcfb; display: inline-block;" id="newTagColour_LightBlue">
             <input type='image' src='Images/tick.png' style='display: inline-block; margin-left: -48px; margin-bottom: 8px; border-radius: 5px; border-width: 0; width: 24px; height: 24px;'>
