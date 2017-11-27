@@ -115,7 +115,20 @@ var FillOutHTML= function () {
     {
         callBTNS[i].onclick = function (num) {
             return function () {
-                document.location.href = "+" + loggedInAccount.contacts[num].mobilePhone;
+                document.location.href = "tel:" + loggedInAccount.contacts[num].mobilePhone;
+                HideAllModals();
+            }
+        }(i);
+    }
+
+    var smsBTNS = document.getElementsByClassName("smsEmailBTN");
+
+    for(var i = 0; i < smsBTNS.length; i++)
+    {
+        smsBTNS[i].onclick = function (num) {
+            return function () {
+                document.location.href = "sms:" + loggedInAccount.contacts[num].mobilePhone;
+                HideAllModals();
             }
         }(i);
     }
