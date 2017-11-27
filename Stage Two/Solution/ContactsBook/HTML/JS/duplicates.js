@@ -59,14 +59,7 @@ var duplicates = function() {
             }
         }
        if(flag>1){
-            for(a=0; a<array.length; a++){
-                if(loggedInAccount.contacts[i]==array[a]){
-                    aflag=1;
-                }
-            }
-            if(aflag==0){
                 array.push(loggedInAccount.contacts[i]);
-            }
        }
     }
 }
