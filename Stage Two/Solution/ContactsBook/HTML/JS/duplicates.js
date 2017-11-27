@@ -29,8 +29,8 @@ var CheckURL = function () {
 
 var OnLoginSuccess = function () {
     console.log("Logged In");
-    FillOutHTML();
     duplicates();
+    FillOutHTML();
 }
 
 var FillOutHTML = function () {
@@ -39,32 +39,34 @@ var FillOutHTML = function () {
     icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
 }
 
-var array = [];
 
+
+var array=[1];
 var duplicates = function() {
-    for (var i = 0; i < loggedInAccount.contacts.length; i++) {
-        for (var j = 0; j < array.length; j++) {
-            if (loggedInAccount.contacts[i].mobilePhone == array[j, 0].mobilePhone) {
-                array[j, 1] = array[i, 1] + 1;
-            }
-            else {array[j, 0] = loggedInAccount.contacts[i];
-                array[j, 1] = 1;
+
+    var i;
+    var j;
+    var a;
+    var flag;
+    for (i = 0; i < loggedInAccount.contacts.length; i++) {
+        flag=0;
+        aflag=0;
+        for (j = 0; j < loggedInAccount.contacts.length; j++) {
+            if(loggedInAccount.contacts[i].mobilePhone==loggedInAccount.contacts[j].mobilePhone) {
+                flag+=1;
             }
         }
+       if(flag>1){
+            for(a=0; a<array.length; a++){
+                if(loggedInAccount.contacts[i]==array[a]){
+                    aflag=1;
+                }
+            }
+            if(aflag==0){
+                array.push(loggedInAccount.contacts[i]);
+            }
+       }
     }
-
-    // for (var i = 0; i < loggedInAccount.contacts.length; i++) {
-    //     for (var j = 0; j < loggedInAccount.contacts.length; j++) {
-    //         if(i !== j)
-    //         {
-    //             if(loggedInAccount.contacts[i].mobilePhone === loggedInAccount.contacts[j].mobilePhone)
-    //             {
-    //                 array[i, 0] = (loggedInAccount.contacts[i]);
-    //                 array[i, 1] = (loggedInAccount.contacts[j]);
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 
