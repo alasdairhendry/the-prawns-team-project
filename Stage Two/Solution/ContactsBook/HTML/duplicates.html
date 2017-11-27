@@ -7,7 +7,23 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="CSS/main.css">
-    <script src="JS/account.js"></script>
+
+    <!--FireBase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCbYpShuRDz_K5AXBI5C7a1QrObC9qUN8I",
+            authDomain: "fir-htmltest.firebaseapp.com",
+            databaseURL: "https://fir-htmltest.firebaseio.com",
+            projectId: "fir-htmltest",
+            storageBucket: "fir-htmltest.appspot.com",
+            messagingSenderId: "692577663068"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="JS/main.js"></script>
     <script src="JS/duplicates.js"></script>
 
     <!--Import Bootstrap-->
@@ -41,8 +57,8 @@
     <br>
     <br>
 
-    <input type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block;">
-    <p style="display: inline-block; vertical-align:top; margin: 5px;">Alasdair Hendry</p>
+    <input id="userIcon" type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block; font-weight: bold; font-size: 20px">
+    <p style="display: inline-block; vertical-align:top; margin: 5px;" id="usernameLogout"}></p>
 </div>
 
 <div class="Main">
