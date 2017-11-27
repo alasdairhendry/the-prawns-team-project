@@ -41,7 +41,9 @@ var FillOutHTML = function () {
 
 
 
+
 var array=[1];
+
 var duplicates = function() {
 
     var i;
