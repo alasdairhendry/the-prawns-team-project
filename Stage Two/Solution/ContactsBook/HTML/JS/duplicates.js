@@ -2,6 +2,7 @@
 
 window.onload = function () {
     CheckURL();
+    duplicates();
 }
 
 var CheckURL = function () {
@@ -42,19 +43,18 @@ var FillOutHTML = function () {
 
 
 
-// var array = new array();
+ var array = [];
 
-// function duplicates() {
-//     for (i = 0; i < loggedInAccount.contacts.length; i++) {
-//         for (j = 0; j < array.length; j++) {
-//             if (loggedInAccount.contacts[i].mobilePhone == array[j, 0].mobilePhone) {
-//                 array[j, 1] = array[i, 1] + 1;
-//             }
-//             else {
-//                 array[j, 0] = loggedInAccount.contacts[i];
-//                 array[j, 1] = 1;
-//             }
-//         }
-//     }
-// }
+ function duplicates() {
+     for (i = 0; i < loggedInAccount.contacts.length; i++) {
+         for (j = 0; j < array.length; j++) {
+             if (loggedInAccount.contacts[i].mobilePhone == array[j, 0].mobilePhone) {
+                array[j, 1] = array[i, 1] + 1;
+            }
+            else {array[j, 0] = loggedInAccount.contacts[i];
+                 array[j, 1] = 1;
+            }
+         }
+     }
+ }
 
