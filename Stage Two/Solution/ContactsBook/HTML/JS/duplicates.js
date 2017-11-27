@@ -2,7 +2,6 @@
 
 window.onload = function () {
     CheckURL();
-    duplicates();
 }
 
 var CheckURL = function () {
@@ -31,6 +30,7 @@ var CheckURL = function () {
 var OnLoginSuccess = function () {
     console.log("Logged In");
     FillOutHTML();
+    duplicates();
 }
 
 var FillOutHTML = function () {
@@ -39,22 +39,36 @@ var FillOutHTML = function () {
     icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
 }
 
+var array = [];
 
-
-
-
- var array = [];
-
- function duplicates() {
-     for (i = 0; i < loggedInAccount.contacts.length; i++) {
-         for (j = 0; j < array.length; j++) {
-             if (loggedInAccount.contacts[i].mobilePhone == array[j, 0].mobilePhone) {
+var duplicates = function() {
+    for (var i = 0; i < loggedInAccount.contacts.length; i++) {
+        for (var j = 0; j < array.length; j++) {
+            if (loggedInAccount.contacts[i].mobilePhone == array[j, 0].mobilePhone) {
                 array[j, 1] = array[i, 1] + 1;
             }
             else {array[j, 0] = loggedInAccount.contacts[i];
-                 array[j, 1] = 1;
+                array[j, 1] = 1;
             }
-         }
-     }
- }
+        }
+    }
+
+    // for (var i = 0; i < loggedInAccount.contacts.length; i++) {
+    //     for (var j = 0; j < loggedInAccount.contacts.length; j++) {
+    //         if(i !== j)
+    //         {
+    //             if(loggedInAccount.contacts[i].mobilePhone === loggedInAccount.contacts[j].mobilePhone)
+    //             {
+    //                 array[i, 0] = (loggedInAccount.contacts[i]);
+    //                 array[i, 1] = (loggedInAccount.contacts[j]);
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
+
+
+
 
