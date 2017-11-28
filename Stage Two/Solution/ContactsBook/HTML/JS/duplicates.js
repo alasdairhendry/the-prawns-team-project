@@ -40,7 +40,82 @@ var FillOutHTML = function () {
     array.sort(function(a, b) {
         return parseFloat(a.mobilePhone) - parseFloat(b.mobilePhone);
     });
-    console.log(array);
+
+
+    var contactsHTML = "";
+
+    for(var i = 1; i < array.length; i++)
+    {
+        contactsHTML += "<div id='contact' class='contact' >\n";
+        contactsHTML += "<div class='col-md-3'><p>"+ array[i].forename + " " + array[i].surname +"</p></div>\n";
+        contactsHTML += "<div class='col-md-2'><p>"+ array[i].mobilePhone +"</p></div>\n";
+        contactsHTML += "<div class='col-md-2'><p>"+ array[i].email +"</p></div>\n";
+
+        contactsHTML += "<div class='col-md-2'><p>";
+        if(array[i].tags) {
+            for (var y = 0; y < array[i].tags.length; y++) {
+                contactsHTML += "<span style='color: " + loggedInAccount.contacts[i].tags[y].colour.toString() + "; font-weight: bold '>";
+                contactsHTML += loggedInAccount.contacts[i].tags[y].name + " ";
+                contactsHTML += "</span>";
+            }
+        }
+        contactsHTML += "</p></div>\n";
+
+        contactsHTML += "<div class='col-md-1'><input type='button' class='smsEmailBTN' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value=''></div>\n";
+        contactsHTML += "<div class='col-md-1'><input type='button' class='callEmailBTN' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value=''></div>\n";
+        contactsHTML += "<div class='col-md-1'><input type='button' class='contactEmailBTN' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value=''></div>\n" ;
+        contactsHTML += "</div>";
+        contactsHTML += "<hr>";
+    }
+
+    document.getElementById("contacts").innerHTML = contactsHTML.toString();
+
+
+    var emailBTNS = document.getElementsByClassName("contactEmailBTN");
+
+    for(var i = 0; i < emailBTNS.length; i++)
+    {
+        emailBTNS[i].onclick = function (num) {
+            return function () {
+                OnClick_EmailContact(num);
+            }
+        }(i);
+    }
+
+    var callBTNS = document.getElementsByClassName("callEmailBTN");
+
+    for(var i = 0; i < callBTNS.length; i++)
+    {
+        callBTNS[i].onclick = function (num) {
+            return function () {
+                document.location.href = "tel:" + array[num].mobilePhone;
+                HideAllModals();
+            }
+        }(i);
+    }
+
+    var smsBTNS = document.getElementsByClassName("smsEmailBTN");
+
+    for(var i = 0; i < smsBTNS.length; i++)
+    {
+        smsBTNS[i].onclick = function (num) {
+            return function () {
+                document.location.href = "sms:" + array[num].mobilePhone;
+                HideAllModals();
+            }
+        }(i);
+    }
+
+    var contacts = document.getElementsByClassName("contact");
+
+    for(var i = 0; i < contacts.length; i++)
+    {
+        contacts[i].onclick = function (num) {
+            return function () {
+                OnClick_EditContact(num, loggedInAccount.contacts);
+            }
+        }(i);
+    }
 
 }
 
