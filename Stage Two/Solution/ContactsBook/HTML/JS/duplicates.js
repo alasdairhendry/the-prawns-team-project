@@ -37,6 +37,11 @@ var FillOutHTML = function () {
     document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
     var icon = document.getElementById("userIcon");
     icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
+    array.sort(function(a, b) {
+        return parseFloat(a.mobilePhone) - parseFloat(b.mobilePhone);
+    });
+    console.log(array);
+
 }
 
 
