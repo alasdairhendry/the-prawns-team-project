@@ -14,3 +14,6 @@
 
 
 .clearbutton:hover{box-shadow: 3px 5px 15px #888888;}
+
+.cleared{display: none;
+        margin: auto;}
