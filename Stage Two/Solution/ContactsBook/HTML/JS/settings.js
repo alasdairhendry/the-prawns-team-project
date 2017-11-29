@@ -29,10 +29,9 @@ var OnLoginSuccess = function () {
     console.log("Logged In");
 }
 
-var flag = 0;
+
 var clear = function(){
             loggedInAccount.contacts.splice(0, loggedInAccount.contacts.Length);
-            flag=1;
             cleared();
 }
 
