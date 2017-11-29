@@ -1,5 +1,10 @@
 window.onload = function () {
     CheckURL();
+
+    var clearBTN = document.getElementById("clearbutton");
+    clearBTN.onclick = function () {
+        clear();
+    }
 }
 
 var CheckURL = function () {
@@ -27,11 +32,20 @@ var CheckURL = function () {
 
 var OnLoginSuccess = function () {
     console.log("Logged In");
+    FillOutHTML();
+}
+
+var FillOutHTML = function () {
+    document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
+    var icon = document.getElementById("userIcon");
+    icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
 }
 
 
 var clear = function(){
-            loggedInAccount.contacts.splice(0, loggedInAccount.contacts.Length);
+    console.log("1");
+            loggedInAccount.contacts.splice(0, loggedInAccount.contacts.length);
+            UpdateAccountOnDatabase(loggedInAccount);
             cleared();
 }
 
