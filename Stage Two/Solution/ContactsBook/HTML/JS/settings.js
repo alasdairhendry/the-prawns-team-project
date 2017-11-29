@@ -53,3 +53,9 @@ function cleared() {
     var x = document.getElementById("cleared");
         x.style.display = "block";
 }
+
+var FillOutHTML = function () {
+    document.getElementById("usernameLogout").innerHTML = loggedInAccount.username;
+    var icon = document.getElementById("userIcon");
+    icon.value = loggedInAccount.username.substring(0, 1).toUpperCase();
+}
