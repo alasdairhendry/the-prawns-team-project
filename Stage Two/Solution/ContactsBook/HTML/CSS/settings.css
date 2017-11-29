@@ -1,0 +1,16 @@
+.clearbutton{max-width: 400px;
+            height: 150px;
+            padding: 50px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: xx-large;
+            text-align: center;
+            display: block;
+            margin: auto;
+            margin-top: 100px;
+}
+
+
+.clearbutton:hover{box-shadow: 3px 5px 15px #888888;}
