@@ -51,15 +51,6 @@ var FillOutHTML = function () {
         contactsHTML += "<div class='col-md-2'><p>"+ array[i].mobilePhone +"</p></div>\n";
         contactsHTML += "<div class='col-md-2'><p>"+ array[i].email +"</p></div>\n";
 
-        contactsHTML += "<div class='col-md-2'><p>";
-        if(array[i].tags) {
-            for (var y = 0; y < array[i].tags.length; y++) {
-                contactsHTML += "<span style='color: " + loggedInAccount.contacts[i].tags[y].colour.toString() + "; font-weight: bold '>";
-                contactsHTML += loggedInAccount.contacts[i].tags[y].name + " ";
-                contactsHTML += "</span>";
-            }
-        }
-        contactsHTML += "</p></div>\n";
 
         contactsHTML += "<div class='col-md-1'><input type='button' class='smsEmailBTN' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value=''></div>\n";
         contactsHTML += "<div class='col-md-1'><input type='button' class='callEmailBTN' style='border-radius: 100%; border-width: 0px; width: 32px; height: 32px' value=''></div>\n";
