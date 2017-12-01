@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/settings.css">
 
 
     <!--FireBase Initialization-->
@@ -25,13 +26,13 @@
     </script>
 
     <script src="JS/main.js"></script>
-    <script src="JS/duplicates.js"></script>
+    <script src="JS/settings.js"></script>
 
 
     <!--Import Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>Contacts book</title>
+    <title>Contacts Book</title>
 </head>
 <body style="padding: 15px">
 <div class="Header">
@@ -39,8 +40,8 @@
     <div class="row">
 
         <div class="col-md-6 vcenter"><h1 class="HeaderText" style="color: #ffffff;">Contacts Book</h1></div>
-        <div class="col-md-5 vcenter "><input class="SearchBar" type="text" value="Search..."></div>
-        <div class="col-md-1"><a class="MenuButton" href="">Menu</a></div>
+        <!--<div class="col-md-5 vcenter "><input class="SearchBar" type="text" value="Search..."></div>-->
+        <!--<div class="col-md-1"><a class="MenuButton" href="">Menu</a></div>-->
 
     </div>
     <!--        </div>-->
@@ -48,26 +49,28 @@
 
 <div class="SideBar">
     <input type="button" class="SideBarButton" value="Contacts" onclick="LoadAccountPage(loggedInAccount.username);">
-    <input type="button" class="SideBarButton" value="Favourites">
+    <!--<input type="button" class="SideBarButton" value="Favourites">-->
     <input type="button" class="SideBarButton" value="Tags" onclick="LoadTagPage(loggedInAccount.username);">
     <hr>
     <input type="button" class="SideBarButton" value="Find Duplicates" onclick="LoadDuplicatesPage(loggedInAccount.username)">
     <input type="button" class="SideBarButton" value="Settings" onclick="LoadSettingsPage(loggedInAccount.username)">
     <hr>
-    <input type="button" class="SideBarButton" value="Log Out">
+    <input type="button" class="SideBarButton" value="Log Out" onclick="document.location.href = 'UserValidation.html';">
 
     <br>
     <br>
 
     <input id="userIcon" type="button" style="border-radius: 100%; border-width: 0px; width: 48px; height: 48px; display: inline-block; font-weight: bold; font-size: 20px">
-    <p style="display: inline-block; vertical-align:top; margin: 5px;" id="usernameLogout"></p>
+    <p style="display: inline-block; vertical-align:top; margin: 5px;" id="usernameLogout"}></p>
 </div>
 
 <div class="Main">
-    <h1>Duplicates</h1>
+    <h1>Settings</h1>
     <div id="contacts">
 
-        <!--PLACE CONTENT FOR THE MAIN CONTAINER IN HERE-->
+        <button class="clearbutton" id ="clearbutton">Clear contacts</button>
+        <br />
+        <h1 class="cleared" id="cleared">Cleared</h1>
 
     </div>
 </div>

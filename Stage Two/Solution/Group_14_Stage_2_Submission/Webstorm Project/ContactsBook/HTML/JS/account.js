@@ -351,6 +351,12 @@ var OnClick_ConfirmAddContact = function () {
         tags.push(new Tag(addContactTagsSelected[i].name, addContactTagsSelected[i].colour));
     }
 
+    if(forename.value === "")
+    {
+        forename.style.backgroundColor = "#ffcce6";
+        return;
+    }
+
     AddContactToAccount(loggedInAccount.value, forename.value, surname.value, addOne.value, addTwo.value, postcode.value, city.value, country.value, mobile.value, homePhone.value, email.value, false, tags);
     UpdateAccountOnDatabase(loggedInAccount);
     FillOutHTML();

@@ -51,34 +51,34 @@ var AddContactToAccount = function (account, forename, surname, addOne, addTwo, 
         return;
 
     if(!forename)
-        forename = "P.";
+        forename = "";
 
     if(!surname)
-        surname = "Sherman";
+        surname = "";
 
     if(!addOne)
-        addOne = "42 Wallaby Way";
+        addOne = "";
 
     if(!addTwo)
-        addTwo = "Sydney";
+        addTwo = "";
 
     if(!postcode)
-        postcode = "2000";
+        postcode = "";
 
     if(!city)
-        city = "Sydney";
+        city = "";
 
     if(!country)
-        country = "Australia";
+        country = "";
 
     if(!mobilePhone)
-        mobilePhone = "07852925503";
+        mobilePhone = "";
 
     if(!homePhone)
-        homePhone = "01475796558";
+        homePhone = "";
 
     if(!email)
-        email = "p.sherman@edu.nsw.au";
+        email = "";
 
     if(!tags)
         tags = [];
